@@ -6,5 +6,7 @@ public class Gabriel24 {
         // veja que em alguns casos não se retornam as raízes de forma correta. Identifique o porquê desse problema e
         // indique uma possível solução.
         // Equações para teste:
+
+        // TODO - fazer!
     }
 }
