@@ -33,7 +33,13 @@ public class Gabriel24 {
         System.out.println(calcKYQC);
 
         // ?
-
         System.out.printf("Resultado do cálculo: %.2f", calcQC);
+
+        // ?
+        // 1x² + 2x + 1 = 0
+        // 1x² + 3x + 2 = 0
+        // 1x² + 4x + 3 = 0
+        // 1x² + 4x + 4 = 0
+        // 2x² + 3x - 2 = 0
     }
 }

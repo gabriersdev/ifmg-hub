@@ -12,14 +12,14 @@ public class Gabriel23 {
 
         // TODO - fazer!
 
-        A = 1450;
-        B = 1150;
-        C = 900;
+        Integer A = 1450;
+        Integer B = 1150;
+        Integer C = 900;
 
-        AeB = 350;
-        AeC = 400;
-        BeC = 300;
-        AeBeC = 100;
+        Integer AeB = 350;
+        Integer AeC = 400;
+        Integer BeC = 300;
+        Integer AeBeC = 100;
 
         // Total da A = 1450 + 350 + 400 = 2200
         // Total da B = 1150 + 350 + 300 + 100 = 1900
