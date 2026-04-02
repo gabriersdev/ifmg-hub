@@ -1,4 +1,5 @@
 import java.lang.reflect.Array;
+import java.util.ArrayList;
 
 public class Gabriel23 {
     public static void main(String[] args) {
@@ -10,5 +11,22 @@ public class Gabriel23 {
         // Receba as informações de preferências na entrada de dados e utilize as fórmulas de teoria dos conjuntos.
 
         // TODO - fazer!
+
+        A = 1450;
+        B = 1150;
+        C = 900;
+
+        AeB = 350;
+        AeC = 400;
+        BeC = 300;
+        AeBeC = 100;
+
+        // Total da A = 1450 + 350 + 400 = 2200
+        // Total da B = 1150 + 350 + 300 + 100 = 1900
+        // Total da C = 900 + 400 + 300 + 100 = 1700
+
+        // ?
+        // Todos = 4800
+        // Pessoas na pesquisa = 3000
     }
 }
