@@ -1,5 +1,3 @@
-import java.lang.reflect.Array;
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Gabriel23 {
@@ -11,47 +9,42 @@ public class Gabriel23 {
         // Implemente um algoritmo que encontre o número de telespectadores que nenhuma das novelas os agradam.
         // Receba as informações de preferências na entrada de dados e utilize as fórmulas de teoria dos conjuntos.
 
-        // T1DO - Fazer. Aproveitar e obter do usuário os parâmetros para cálculo
-
         Scanner keyboard = new Scanner(System.in);
 
-        Integer A = 1450;
-        Integer B = 1150;
-        Integer C = 900;
-
-        Integer AeB = 350;
-        Integer AeC = 400;
-        Integer BeC = 300;
-        Integer AeBeC = 100;
+        System.out.println("Informe o total de pessoas na pesquisa: ");
+        int totalPesquisa = keyboard.nextInt();
 
         System.out.println("Informe o valor de A: ");
-        A = keyboard.nextInt();
+        int A = keyboard.nextInt();
 
         System.out.println("Informe o valor de B: ");
-        B = keyboard.nextInt();
+        int B = keyboard.nextInt();
 
         System.out.println("Informe o valor de C: ");
-        C = keyboard.nextInt();
+        int C = keyboard.nextInt();
 
         System.out.println("Informe o valor de A e B: ");
-        AeB = keyboard.nextInt();
+        int AeB = keyboard.nextInt();
 
         System.out.println("Informe o valor de A e C: ");
-        AeC = keyboard.nextInt();
+        int AeC = keyboard.nextInt();
 
         System.out.println("Informe o valor de B e C: ");
-        BeC = keyboard.nextInt();
+        int BeC = keyboard.nextInt();
 
-        System.out.println("Informe o valor de A, B e C");
-        AeBeC = keyboard.nextInt();
+        System.out.println("Informe o valor de A, B e C: ");
+        int AeBeC = keyboard.nextInt();
 
-        // A lógica é pegar os valores totais e diminuir intercessões, depois somar os resultados obtidos e subtrair pelo tamanho "da amostra" (3000 pessoas)
-        // Total da A = 1450 + 350 + 400 = 2200
-        // Total da B = 1150 + 350 + 300 + 100 = 1900
-        // Total da C = 900 + 400 + 300 + 100 = 1700
+        // Pela fórmula da teoria dos conjuntos (Princípio da Inclusão-Exclusão),
+        // o total de pessoas que assistem a pelo menos uma novela é:
+        // A união B união C = A + B + C - (A inter B) - (A inter C) - (B inter C) + (A inter B inter C)
+        int assistemPeloMenosUma = A + B + C - AeB - AeC - BeC + AeBeC;
 
-        // ?
-        // Todos = 4800
-        // Pessoas na pesquisa = 3000
+        // As pessoas que não gostam de nenhuma novela são o total da pesquisa menos as que assistem a pelo menos uma
+        int nenhuma = totalPesquisa - assistemPeloMenosUma;
+
+        System.out.println("O número de telespectadores que não gostam de nenhuma das novelas é: " + nenhuma);
+        
+        keyboard.close();
     }
 }
