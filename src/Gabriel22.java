@@ -1,3 +1,4 @@
+import java.nio.DoubleBuffer;
 import java.util.Scanner;
 
 public class Gabriel22 {
@@ -10,12 +11,14 @@ public class Gabriel22 {
 
         Scanner keyboard = new Scanner(System.in);
 
+        // TODO - corrigir o problema de endereçamento de memória
         System.out.println("Informe um valor para a varíavel A: ");
         varA = keyboard.nextDouble();
 
         System.out.println("Informe um valor para a varíavel B: ");
         varB = keyboard.nextDouble();
 
+        // TODO - verificar uso de método clone ou utilitário para clonagem de objetos instanciados
         varB = varA;
         varA = varB;
 

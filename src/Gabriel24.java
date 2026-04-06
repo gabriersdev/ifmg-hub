@@ -35,6 +35,7 @@ public class Gabriel24 {
         // ?
         System.out.printf("Resultado do cálculo: %.2f", calcQC);
 
+        // Fórmulas:
         // ?
         // 1x² + 2x + 1 = 0
         // 1x² + 3x + 2 = 0
