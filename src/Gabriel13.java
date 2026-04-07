@@ -19,7 +19,8 @@ public class Gabriel13 {
         currentYearCoup = keyboard.nextInt();
 
         // Subtrai do ano atual o primeiro ano que teve copa, divide pelo intervalo em anos e subtraí 2 (quantidade de anos que não tiveram copas)
-        countCoups = ((currentYearCoup - firstYearCoup) / intervalInYears) - 2;
+        // Para considerar 1930, soma-se + 1
+        countCoups = ((currentYearCoup - firstYearCoup) / intervalInYears) - 2 + 1;
 
         System.out.println();
         System.out.printf("Entre %d e %d tiveram %d copas.", firstYearCoup, currentYearCoup, countCoups);
