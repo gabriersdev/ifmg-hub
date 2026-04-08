@@ -21,7 +21,7 @@ public class Gabriel13 {
         System.out.println("Qual é o ano atual? ");
         currentYear = keyboard.nextInt();
 
-        // TODO - fazer validações
+        // TODO - corrigir as validações feitas
         // IF condicao e ELSE condicao
 
         if (currentYear < firstYearCoup) {

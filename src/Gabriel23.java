@@ -9,6 +9,7 @@ public class Gabriel23 {
         // Implemente um algoritmo que encontre o número de telespectadores que nenhuma das novelas os agradam.
         // Receba as informações de preferências na entrada de dados e utilize as fórmulas de teoria dos conjuntos.
 
+        // TODO - traduzir
         Scanner keyboard = new Scanner(System.in);
 
         System.out.println("Informe o total de pessoas na pesquisa: ");
