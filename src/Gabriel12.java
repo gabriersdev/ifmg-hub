@@ -9,15 +9,14 @@ public class Gabriel12 {
         // km por dia e dadas as medidas das ruas A e B (em metros) da figura abaixo, calcule e mostre quantas
         // voltas Dona Maria precisa fazer no quarteirão para que ela atinja sua meta.
 
-        // TODO - conferir a lógica
-        double diaryGoalInMeters, sizeRoadA, sizeRoadB, hypotenuse;
-        int countRound;
+        double diaryGoalInMeters, sizeRoadA, sizeRoadB, hypotenuse, perimeter, countRound;
 
         System.out.println(":: Calculadora de voltas para caminhada ::");
         Scanner keyboard = new Scanner(System.in);
 
-        System.out.println("Qual a sua meta diária de caminhada em METROS? ");
-        diaryGoalInMeters = keyboard.nextDouble();
+        System.out.println("Qual a sua meta diária de caminhada em KM? ");
+        // Converte KM para metros (multiplica por 1000)
+        diaryGoalInMeters = keyboard.nextDouble() * 1000;
 
         System.out.println("Qual o tamanho da rua A em METROS? ");
         sizeRoadA = keyboard.nextDouble();
@@ -26,10 +25,15 @@ public class Gabriel12 {
         sizeRoadB = keyboard.nextDouble();
 
         hypotenuse = Math.sqrt(Math.pow(sizeRoadA, 2) + Math.pow(sizeRoadB, 2));
-        countRound = (int) Math.ceil(diaryGoalInMeters / hypotenuse);
+        
+        // O perímetro do quarteirão é a soma da rua A, rua B e a hipotenusa.
+        perimeter = sizeRoadA + sizeRoadB + hypotenuse;
+
+        // A quantidade de voltas
+        countRound = (int) Math.ceil(diaryGoalInMeters / perimeter);
 
         System.out.println();
-        System.out.printf("Você precisa dar %d voltas.", countRound);
+        System.out.printf("Você precisa dar %f voltas.", countRound);
         keyboard.close();
     }
 }

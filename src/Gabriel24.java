@@ -20,23 +20,24 @@ public class Gabriel24 {
         System.out.println("Informe o coeficiente c: ");
         varC = keyboard.nextDouble();
 
-        // TODO - comentar em pt-br!
+        // Verifica se o coeficiente A é zero, o que descaracteriza a equação como sendo do segundo grau
         if (varA == 0) System.out.println("Não é uma equação do segundo grau.");
 
-        // TODO - comentar em pt-br!
+        // Caso contrário, calcula o delta e as raízes reais (se existirem)
         else {
             delta = Math.pow(varB, 2) - 4 * varA * varC;
 
+            // Se o delta for negativo, não há raízes reais possíveis
             if (delta < 0) System.out.println("A equação não possui raízes reais, pois o delta é negativo (" + delta + ").");
 
-                // TODO - comentar em pt-br!
+            // Se o delta for igual a zero, a equação possui apenas uma raiz real
             else if (delta == 0) {
                 root = -varB / (2 * varA);
                 System.out.printf("A equação possui apenas uma raiz real: %.2f", root);
                 System.out.println();
             }
 
-            // TODO - comentar em pt-br!
+            // Se o delta for maior que zero, a equação possui duas raízes reais distintas
             else {
                 // X' e X''
                 xLine1 = (-varB + Math.sqrt(delta)) / (2 * varA);

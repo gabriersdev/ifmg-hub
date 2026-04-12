@@ -20,13 +20,13 @@ public class Gabriel13 {
         System.out.println("Qual é o ano atual? ");
         currentYear = keyboard.nextInt();
 
-        // TODO - comentar!
+        // Observa se o ano é anterior à primeira copa
         if (currentYear < firstYearCoup) System.out.println("O ano informado é anterior a primeira Copa.");
 
         else {
             countCoups = ((currentYear - firstYearCoup) / intervalInYears) + 1;
 
-            // TODO - comentar!
+            // Subtraí as copas que não tiveram durante a guerra
             if (currentYear >= initGapWWII) countCoups = countCoups - 1;
             if (currentYear >= finishGapWWII) countCoups = countCoups - 1;
         }
