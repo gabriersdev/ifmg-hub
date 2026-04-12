@@ -14,5 +14,6 @@ public class Gabriel09 {
 
         diagonalsCount = (countSide * (countSide - 3)) / 2;
         System.out.printf("A quantidade de diagonais do polígono com %d lados é %d", countSide, diagonalsCount);
+        keyboard.close();
     }
 }

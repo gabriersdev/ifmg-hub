@@ -14,6 +14,7 @@ public class Gabriel19 {
 
         System.out.println("Informe um número: ");
         number = keyboard.nextDouble();
+        keyboard.close();
 
         numberPow2 = Math.pow(number, 2);
         numberPow3 = Math.pow(number, 3);

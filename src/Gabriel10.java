@@ -21,5 +21,6 @@ public class Gabriel10 {
 
         accDeposit = Math.pow((initialDeposit * (1 + (income / periodInMonths))), initialDeposit * years);
         System.out.printf("O valor acumulado do investimento é de R$ %f", accDeposit);
+        keyboard.close();
     }
 }

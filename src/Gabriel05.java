@@ -7,18 +7,18 @@ public class Gabriel05 {
         // sobre o valor acumulado (salário base + gratificação).
 
         double salary, salaryWithGratification, liquidSalary, gratificationPercentage, farePercentage;
+        Scanner keyboard = new Scanner(System.in);
 
         gratificationPercentage = 0.10;
         farePercentage = 0.05;
 
         System.out.println(":: Cálculo do salário líquido ::");
-        Scanner keyboard = new Scanner(System.in);
-
         System.out.println("Informe o seu salário: ");
         salary = keyboard.nextDouble();
         salaryWithGratification = salary * (1 + gratificationPercentage);
         liquidSalary = salaryWithGratification * (1 - farePercentage);
 
         System.out.printf("O valor do seu salário líquido é %.2f", liquidSalary);
+        keyboard.close();
     }
 }

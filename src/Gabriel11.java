@@ -25,5 +25,6 @@ public class Gabriel11 {
         salaryDiscounted = salary - incomeInvoice1 - incomeInvoice2;
 
         System.out.printf("O valor do salário após pagar as duas contas é de R$ %f", salaryDiscounted);
+        keyboard.close();
     }
 }

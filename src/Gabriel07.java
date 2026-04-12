@@ -19,5 +19,6 @@ public class Gabriel07 {
         ray = (base * height);
 
         System.out.printf("O perímetro desse triângulo é %f e a área dele é %f.", perimeter, ray);
+        keyboard.close();
     }
 }

@@ -18,5 +18,6 @@ public class Gabriel17 {
         floatingPointPart = realNumber - integerPart;
 
         System.out.printf("A parte inteira de %.4f é %d e a parte decimal é %.4f.", realNumber, integerPart, floatingPointPart);
+        keyboard.close();
     }
 }

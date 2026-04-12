@@ -1,4 +1,3 @@
-import java.nio.DoubleBuffer;
 import java.util.Scanner;
 
 public class Gabriel22 {
@@ -7,22 +6,23 @@ public class Gabriel22 {
         // troca dos valores de forma que A passe a possuir o valor de B e B passe a possuir o valor de A. Imprima os
         // valores após troca.
 
-        double varA, varB;
-
+        double varA, varB, temp;
         Scanner keyboard = new Scanner(System.in);
 
-        // TODO - corrigir o problema de endereçamento de memória
-        System.out.println("Informe um valor para a varíavel A: ");
+        System.out.println("Informe um valor para a variável A: ");
         varA = keyboard.nextDouble();
 
-        System.out.println("Informe um valor para a varíavel B: ");
+        System.out.println("Informe um valor para a variável B: ");
         varB = keyboard.nextDouble();
 
-        // TODO - verificar uso de método clone ou utilitário para clonagem de objetos instanciados
-        varB = varA;
+        // Trocando os valores
+        // "temp" necessário para trocar os valores, senão acaba ficando tudo com o mesmo valor
+        temp = varA;
         varA = varB;
+        varB = temp;
 
         System.out.println();
         System.out.printf("Agora o valor de A é %.4f e o de B %.4f", varA, varB);
+        keyboard.close();
     }
 }

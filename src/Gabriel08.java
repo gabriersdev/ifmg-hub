@@ -11,7 +11,6 @@ public class Gabriel08 {
         // total e o valor médio de venda (R$) que Zé Borba Gato pode pedir pelo terreno.
 
         double minorBase, highBase, height, m2Value, area, saleValue;
-
         Scanner keyboard = new Scanner(System.in);
 
         System.out.println("Qual o tamanho em metros da base menor do terreno? ");
@@ -30,5 +29,6 @@ public class Gabriel08 {
         saleValue = area * m2Value;
 
         System.out.printf("O tamanho da área do terreno é %f. Ele pode ser vendido por R$ %.2f.", area, saleValue);
+        keyboard.close();
     }
 }

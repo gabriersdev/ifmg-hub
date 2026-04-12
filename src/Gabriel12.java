@@ -9,6 +9,7 @@ public class Gabriel12 {
         // km por dia e dadas as medidas das ruas A e B (em metros) da figura abaixo, calcule e mostre quantas
         // voltas Dona Maria precisa fazer no quarteirão para que ela atinja sua meta.
 
+        // TODO - conferir a lógica
         double diaryGoalInMeters, sizeRoadA, sizeRoadB, hypotenuse;
         int countRound;
 
@@ -29,5 +30,6 @@ public class Gabriel12 {
 
         System.out.println();
         System.out.printf("Você precisa dar %d voltas.", countRound);
+        keyboard.close();
     }
 }

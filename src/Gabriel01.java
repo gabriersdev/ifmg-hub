@@ -5,10 +5,9 @@ public class Gabriel01 {
         // Crie um algoritmo que calcule a soma e a média de 3 números informados pelo usuário.
         int number1, number2, number3;
         double sum, avg;
-
-        System.out.println(":: Cálculo de soma e média ::");
         Scanner keyboard = new Scanner(System.in);
 
+        System.out.println(":: Cálculo de soma e média ::");
         System.out.println("Informe o 1º número: ");
         number1 = keyboard.nextInt();
 
@@ -24,5 +23,6 @@ public class Gabriel01 {
         System.out.printf("A soma dos 3 números informados é: %f.", sum);
         System.out.println();
         System.out.printf("A média dos 3 números informados é: %f.", avg);
+        keyboard.close();
     }
 }

@@ -5,22 +5,20 @@ public class Gabriel21 {
         // Faça um programa que receba a medida do ângulo formado por uma escada apoiada e a altura da parede.
         // Calcule e mostre a medida da escada para que a ponta da parede possa ser alcançada.
 
-        // TODO - traduzir!
-        double anguloEscada, alturaParede, tamanhoEscada, pi;
+        double ladderAngle, wallHeight, ladderLength, angleInRadians;
+        Scanner keyboard = new Scanner(System.in);
 
-        Scanner teclado = new Scanner(System.in);
-        pi = 3.1416;
-
-        // TODO - conferir!
         System.out.println("Qual o ângulo que a escada se encontra? ");
-        anguloEscada = teclado.nextDouble();
-        anguloEscada = Math.sin((anguloEscada * pi) / 180);
+        ladderAngle = keyboard.nextDouble();
 
         System.out.println("Qual a altura da parede? ");
-        alturaParede = teclado.nextDouble();
+        wallHeight = keyboard.nextDouble();
 
-        tamanhoEscada = alturaParede * anguloEscada;
+        angleInRadians = Math.toRadians(ladderAngle);
+        ladderLength = wallHeight / Math.sin(angleInRadians);
+
         System.out.println();
-        System.out.printf("O tamanho da escada é de %.4f metros", tamanhoEscada);
+        System.out.printf("O tamanho da escada é de %.4f metros\n", ladderLength);
+        keyboard.close();
     }
 }

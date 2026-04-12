@@ -6,7 +6,6 @@ public class Gabriel16 {
         // divisão inteira e resto da divisão inteira).
 
         int minutes, countHours, restMinutes;
-
         Scanner keyboard = new Scanner(System.in);
 
         System.out.println(":: Conversão de minutos para horas e minutos");
@@ -17,5 +16,6 @@ public class Gabriel16 {
         restMinutes = minutes % 60;
 
         System.out.printf("Resultado: %d h %d min", countHours, restMinutes);
+        keyboard.close();
     }
 }

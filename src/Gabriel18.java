@@ -33,5 +33,6 @@ public class Gabriel18 {
         System.out.println();
 
         System.out.printf("Com %.2f%% de desconto, o valor a ser pago é de R$ %.4f", discountValue * 100, valuePerKWWithDiscount);
+        keyboard.close();
     }
 }

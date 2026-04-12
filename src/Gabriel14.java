@@ -24,5 +24,6 @@ public class Gabriel14 {
         necessaryPower = area * necessaryPowPerM2;
 
         System.out.printf("Para iluminar corretamente esse cômodo de área %f é necessário uma potência de %f.", area, necessaryPower);
+        keyboard.close();
     }
 }

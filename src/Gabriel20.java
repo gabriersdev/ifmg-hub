@@ -29,5 +29,6 @@ public class Gabriel20 {
         finalSalary = totalSalary + overtimeTotalPay;
 
         System.out.printf("O salário final a ser recebido é de R$ %.2f", finalSalary);
+        keyboard.close();
     }
 }

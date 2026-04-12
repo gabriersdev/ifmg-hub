@@ -7,10 +7,10 @@ public class Gabriel06 {
         // valor de vendas realizadas por um funcionário, calcule e mostre o benefício a ser recebido pelo mesmo.
 
         double salary, commissionTotal, salaryWithCommission, commissionPercentage;
+        Scanner keyboard = new Scanner(System.in);
 
         commissionPercentage = 0.04;
         System.out.println(":: Cálculo do valor de comissão + salário ::");
-        Scanner keyboard = new Scanner(System.in);
 
         System.out.println("Informe o seu salário: ");
         salary = keyboard.nextDouble();
@@ -20,5 +20,6 @@ public class Gabriel06 {
         salaryWithCommission = salary * (commissionTotal * commissionPercentage);
 
         System.out.printf("O valor total que você deve receber é de %.2f", salaryWithCommission);
+        keyboard.close();
     }
 }

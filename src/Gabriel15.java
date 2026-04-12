@@ -18,5 +18,6 @@ public class Gabriel15 {
         circumferenceArea = pi * Math.pow(ray, 2);
         System.out.println();
         System.out.printf("A área da circunferência é %f.", circumferenceArea);
+        keyboard.close();
     }
 }
