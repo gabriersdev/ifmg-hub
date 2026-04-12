@@ -1,3 +1,5 @@
+package exercise02;
+
 import java.util.Scanner;
 
 public class Gabriel03 {
