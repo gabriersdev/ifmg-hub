@@ -40,7 +40,12 @@ public class Gabriel04 {
                 break;
 
             case "/":
-                result = number1 / number2;
+                if (number2 == 0) {
+                    OK = 0;
+                    System.out.println("O divisor de uma operação de divisão não pode ser ZERO.");
+                }
+
+                else result = number1 / number2;
                 break;
 
             default:
@@ -49,7 +54,7 @@ public class Gabriel04 {
                 break;
         }
 
-        // Só imprime o resultado se a condição do switch default não for atendida
+        // Só imprime o resultado se (a condição do switch default OU se o divisor for ZERO) não for atendida
         if (OK == 1) System.out.printf("O resultado da operação é %.4f", result);
     }
 }
