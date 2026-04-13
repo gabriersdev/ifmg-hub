@@ -7,6 +7,7 @@ public class Gabriel05 {
         // Faça um programa que solicite ao usuário que digite um caracter e em seguida imprima se o caracter
         // digitado é ou não uma vogal.
 
+        // TODO - usar o tipo CHAR no lugar de STRING e depois transformar o CHAR em STRING para conseguir manipular da mesma forma
         String character;
         Scanner keyboard = new Scanner(System.in);
 
