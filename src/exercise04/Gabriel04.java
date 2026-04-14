@@ -29,26 +29,28 @@ public class Gabriel04 {
         diffDays = electionDay - birthDay;
 
         // Se o ano já for maior que 18 (19, 20...) já deve votar e se for menor que 70
-        if (diffYear > 18 && diffYear < 70) required = true;
+        if (diffYear > 16) {
 
-        // Se for maior ou igual a 16, já pode votar (facultativo)
-        else if (diffYear > 16) facultative = true;
+        } else if (diffYear < 16) {
+            // Não pode
+        } else {
+            // Diff de meses
 
-        else if (diffYear > 15 && diffDays > 70) {
-            if (diffMonths >= 0) facultative = true;
-
-            else if (diffMonths == 0) {
-                if (diffDays >= 1) facultative = true;
-                else unauthorized = true;
+            if (diffMonths > 1) {
+                // N vota
             }
 
-            else unauthorized = true;
+            else if (diffMonths < 1) {
+                // Vota
+            }
+
+             else {
+                 // Olhar diff dias
+
+                // diffDays < 0 => não vota
+                // diffDays > 0 => vota
+                // diffDays = 0 => vota
+            }
         }
-
-        else unauthorized = true;
-
-        if (unauthorized) System.out.printf("Você não tem idade suficiente para votar.");
-        if (facultative) System.out.println("Você pode votar (voto facultativo)");
-        if (required) System.out.println("Você deve votar (voto obrigatório)");
     }
 }
