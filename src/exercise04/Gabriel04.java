@@ -1,5 +1,7 @@
 package exercise04;
 
+import java.util.Scanner;
+
 public class Gabriel04 {
     public static void main(String[] args) {
         // Faça um programa que receba de entrada a data de votação do ano atual e a data de nascimento de uma
@@ -12,45 +14,49 @@ public class Gabriel04 {
         // 16 à 18 e acima de 70 Facultativo
         // Entre 18 e 70 Obrigatório
 
-        int electionDay, electionMonth, electionYear, birthDay, birthMonth, birthYear;
-        int diffYear, diffMonths, diffDays = 0;
-        boolean facultative = false, required = false, unauthorized = false;
+        Scanner keyboard = new Scanner(System.in);
+        int electionDay, electionMonth, electionYear, birthDay, birthMonth, birthYear, age, status = 0;
+        // Usando status como variável de controle. Os valores são: 0 - não pode votar, 1 - voto facultativo, 2 - o voto é obrigatório
 
-        electionDay = 10;
-        electionMonth = 10;
-        electionYear = 2020;
+        // Infos. da eleição
+        System.out.println("Informe o dia da eleição: ");
+        electionDay = keyboard.nextInt();
 
-        birthDay = 1;
-        birthMonth = 10;
-        birthYear = 2004;
+        System.out.println("Informe o mês da eleição: ");
+        electionMonth = keyboard.nextInt();
 
-        diffYear = electionYear - birthYear;
-        diffMonths = electionMonth - birthMonth;
-        diffDays = electionDay - birthDay;
+        System.out.println("Informe o ano da eleição: ");
+        electionYear = keyboard.nextInt();
 
-        // Se o ano já for maior que 18 (19, 20...) já deve votar e se for menor que 70
-        if (diffYear > 16) {
+        // Infos. de nascimento
+        System.out.println("Informe o dia em que você nasceu: ");
+        birthDay = keyboard.nextInt();
 
-        } else if (diffYear < 16) {
-            // Não pode
-        } else {
-            // Diff de meses
+        System.out.println("Informe o mês em que você nasceu: ");
+        birthMonth = keyboard.nextInt();
 
-            if (diffMonths > 1) {
-                // N vota
-            }
+        System.out.println("Informe o ano em que você nasceu: ");
+        birthYear = keyboard.nextInt();
 
-            else if (diffMonths < 1) {
-                // Vota
-            }
+        // Calcula a idade baseada apenas no ano
+        age = electionYear - birthYear;
 
-             else {
-                 // Olhar diff dias
+        // Lógica para ajuste de idade, quando a pessoa ainda não fez aniversário no ano da eleição
+        if (electionMonth < birthMonth || (electionMonth == birthMonth && electionDay < birthDay)) age = age - 1;
 
-                // diffDays < 0 => não vota
-                // diffDays > 0 => vota
-                // diffDays = 0 => vota
-            }
-        }
+        // Não pode votar
+        if (age < 16) status = 0;
+
+        // Voto facultativo, para pessoas que tem 16 ou mais e menos de 18
+        else if (age < 18 || age > 70) status = 1;
+
+        // Voto obrigatório - definitivamente tem 18 ou mais e 70 ou menos
+        else status = 2;
+
+        // Exibe o resultado de acordo com o status
+        System.out.println();
+        if (status == 0) System.out.printf("No dia da eleição você terá %d anos e não vota.", age);
+        else if (status == 1) System.out.println("Você pode votar (voto facultativo).");
+        else if (status == 2) System.out.println("Você deve votar (voto obrigatório).");
     }
 }
