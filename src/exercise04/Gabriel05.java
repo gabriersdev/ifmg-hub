@@ -10,20 +10,20 @@ public class Gabriel05 {
 
         // Um triângulo só é possível de ser montado se um lado for menor que a soma dos outros dois
 
-        Scanner input = new Scanner(System.in);
+        Scanner keyboard = new Scanner(System.in);
         boolean side1IsValid, side2IsValid, side3IsValid;
         double side1, side2, side3;
         // triangleType usada como variável de controle. Os valores correspondentes: 1 = equilátero, 2 = isóceles, 3 = escaleno, 0 = não é possível ser um triângulo
         int triangleType = 0;
 
         System.out.println("Informe o valor de um lado do triângulo: ");
-        side1 = input.nextDouble();
+        side1 = keyboard.nextDouble();
 
         System.out.println("Informe o valor de outro lado do triângulo: ");
-        side2 = input.nextDouble();
+        side2 = keyboard.nextDouble();
 
         System.out.println("Informe o valor do último lado do triângulo: ");
-        side3 = input.nextDouble();
+        side3 = keyboard.nextDouble();
 
         side1IsValid = side1 < (side2 + side3);
         side2IsValid = side2 < (side1 + side3);
@@ -59,5 +59,7 @@ public class Gabriel05 {
                 System.out.println("Os valores informados não formam um triângulo.");
                 break;
         }
+
+        keyboard.close();
     }
 }

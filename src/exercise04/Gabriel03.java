@@ -27,5 +27,6 @@ public class Gabriel03 {
         
         tensionS = ((4 * cargoQ)/(pi * Math.pow(diameterD, 2)) * valueN);
         System.out.printf("A tensão em que a barra está submetida é de %.4f", tensionS);
+        keyboard.close();
     }
 }

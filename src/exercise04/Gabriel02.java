@@ -26,5 +26,6 @@ public class Gabriel02 {
 
         System.out.println();
         System.out.printf("Seu IMC é %.2f", imc);
+        keyboard.close();
     }
 }

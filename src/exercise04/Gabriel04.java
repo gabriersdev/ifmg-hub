@@ -58,5 +58,7 @@ public class Gabriel04 {
         if (status == 0) System.out.printf("No dia da eleição você terá %d anos e não vota.", age);
         else if (status == 1) System.out.println("Você pode votar (voto facultativo).");
         else if (status == 2) System.out.println("Você deve votar (voto obrigatório).");
+
+        keyboard.close();
     }
 }
