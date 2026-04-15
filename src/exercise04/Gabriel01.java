@@ -7,9 +7,20 @@ public class Gabriel01 {
         // Refaça o exercício referente à equação do segundo grau do roteiro anterior considerando todas as
         // condições possíveis, conforme fluxograma abaixo.
         // ax² + bx + c = 0
+        // Fluxograma: https://f.feridinha.com/v9LsG.png
 
+        // Exercício anterior: https://f.feridinha.com/4HxTn.png
+        // f(x) = 1, se x <= 1
+        // f(x) = 2, se 1 < x <= 2
+        // f(x) = x², se 2 < x <= 3
+        // f(x) = x³, se x > 3
+
+        // TODO - rever e refazer
         double varA = 0, varB = 0, varC = 0, varD = 0, varR = 0, varR1 = 0, varR2 = 0;
         Scanner keyboard = new Scanner(System.in);
+
+        varA = keyboard.nextDouble();
+        varB = keyboard.nextDouble();
 
         if (varA == 0) {
             System.out.println("Não é uma equação do 2º grau.");
@@ -37,6 +48,8 @@ public class Gabriel01 {
             System.out.println(varR2);
         }
 
+        // TODO - verificar qual a saída necessária e sair
+        System.out.println();
         keyboard.close();
     }
 }
