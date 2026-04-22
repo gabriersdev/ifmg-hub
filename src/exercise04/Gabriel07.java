@@ -27,6 +27,7 @@ public class Gabriel07 {
                 (numberStringArray[3].equals("1") || numberStringArray[3].equals("0"))
         ) {
             // Como o número terá sempre 4 casas decimais, trabalhando com a conversão de bin para dec sem iteração
+            // SEMPRE necessário converter para INT quando se trata de Math.pow, que retorna DOUBLE
             accNumberConversed = Integer.parseInt(numberStringArray[3]);
             accNumberConversed += Integer.parseInt(numberStringArray[2]) * Math.pow(2, 1);
             accNumberConversed += Integer.parseInt(numberStringArray[1]) * Math.pow(2, 2);
