@@ -20,20 +20,17 @@ public class Gabriel01 {
         // Testar e consultar o funcionamento do método hasNext()
         while (!keyboard.hasNext() || !loginOK) {
             scanLogin = keyboard.next();
-            bool equal = !strLogin.equals(scanLogin);
-            System.out.println("equal: " + equal);
-            if (equal) System.out.println("Usuário não encontrado. Tente novamente: ");
-            else loginOK = true;
+            if (strLogin.equals(scanLogin)) loginOK = true;
+            else System.out.println("Usuário não encontrado. Tente novamente: ");
         }
 
-        System.out.println("Informe a senha: ");
+        System.out.println("Informe a senha (apenas números): ");
 
         while (!keyboard.hasNextInt() || !passOK) {
             scanPass = keyboard.nextInt();
-            bool isTruth = strPass != scanPass;
-            System.out.println("isTruth: " + isTruth);
-            if (isTruth) System.out.println("Senha incorreta. Tente novamente: ");
-            else passOK = true;
+            // if (type())
+            if (strPass == scanPass) passOK = true;
+            else System.out.println("Senha incorreta. Tente novamente: ");
         }
 
         System.out.println("Acesso concedido. Bem-vindo, admin!");
