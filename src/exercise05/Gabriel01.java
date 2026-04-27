@@ -17,7 +17,8 @@ public class Gabriel01 {
 
         System.out.println("Informe o seu usuário: ");
 
-        while (!keyboard.hasNext() && !loginOK) {
+        // Testar e consultar o funcionamento do método hasNext()
+        while (!keyboard.hasNext() || !loginOK) {
             scanLogin = keyboard.next();
             if (!strLogin.equals(scanLogin)) System.out.println("Usuário não encontrado.");
             else loginOK = true;
@@ -25,7 +26,7 @@ public class Gabriel01 {
 
         System.out.println("Informe a senha: ");
 
-        while (!keyboard.hasNextInt() && !passOK) {
+        while (!keyboard.hasNextInt() || !passOK) {
             scanPass = keyboard.nextInt();
             if (strPass != scanPass) System.out.println("Senha incorreta.");
             else passOK = true;
