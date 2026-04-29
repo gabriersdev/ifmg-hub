@@ -7,29 +7,36 @@ public class Gabriel05 {
         // Faça um programa que solicite ao usuário que digite um caracter e em seguida imprima se o caracter
         // digitado é ou não uma vogal.
 
-        // TODO - usar o tipo CHAR no lugar de STRING e depois transformar o CHAR em STRING para conseguir manipular da mesma forma
-        String character;
         Scanner keyboard = new Scanner(System.in);
+        String input;
+        char character;
 
-        System.out.println("Digite UM caractere qualquer: ");
-        character = keyboard.next().toLowerCase();
+        System.out.print("Digite UM caractere qualquer: ");
+        input = keyboard.next();
 
-        if (character.length() != 1) System.out.println("É necessário digitar APENAS UM caractere.");
+        if (input.length() != 1) {
+            System.out.println("É necessário digitar APENAS UM caractere.");
+        } else {
+            character = Character.toLowerCase(input.charAt(0));
 
-        else {
             switch (character) {
-                case "a":
-                case "e":
-                case "i":
-                case "o":
-                case "u":
-                    System.out.printf("O caractere %s é uma vogal.", character);
+                case 'a':
+                case 'e':
+                case 'i':
+                case 'o':
+                case 'u':
+                    System.out.printf("O caractere '%c' é uma vogal.\n", input.charAt(0));
                     break;
-
                 default:
-                    System.out.printf("O caractere %s não é uma vogal.", character);
+                    if (Character.isLetter(character)) {
+                        System.out.printf("O caractere '%c' é uma consoante.\n", input.charAt(0));
+                    } else {
+                        System.out.printf("O caractere '%c' não é uma vogal (nem uma letra).\n", input.charAt(0));
+                    }
                     break;
             }
         }
+        
+        keyboard.close();
     }
 }

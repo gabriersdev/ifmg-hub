@@ -9,47 +9,40 @@ public class Gabriel01 {
         // ax² + bx + c = 0
         // Fluxograma: https://f.feridinha.com/v9LsG.png
 
-        // Exercício anterior: https://f.feridinha.com/4HxTn.png
-        // f(x) = 1, se x <= 1
-        // f(x) = 2, se 1 < x <= 2
-        // f(x) = x², se 2 < x <= 3
-        // f(x) = x³, se x > 3
-
-        // TODO - rever e refazer
-        double varA = 0, varB = 0, varC = 0, varD = 0, varR = 0, varR1 = 0, varR2 = 0;
         Scanner keyboard = new Scanner(System.in);
+        double a, b, c, delta, root, root1, root2;
 
-        varA = keyboard.nextDouble();
-        varB = keyboard.nextDouble();
+        System.out.print("Digite o valor de a: ");
+        a = keyboard.nextDouble();
+        
+        System.out.print("Digite o valor de b: ");
+        b = keyboard.nextDouble();
+        
+        System.out.print("Digite o valor de c: ");
+        c = keyboard.nextDouble();
 
-        if (varA == 0) {
+        if (a == 0) {
             System.out.println("Não é uma equação do 2º grau.");
-
-            if (varB == 0) System.out.println("Não é uma equação do 1º grau.");
-
-            //
-            else {
-                varR = -varC / varB;
-                System.out.println(varR);
+            if (b == 0) {
+                System.out.println("Não é uma equação do 1º grau.");
+            } else {
+                root = -c / b;
+                System.out.println("A raiz da equação do 1º grau é: " + root);
+            }
+        } else {
+            delta = (b * b) - (4 * a * c);
+            if (delta < 0) {
+                System.out.println("Não há raízes reais.");
+            } else if (delta == 0) {
+                root = -b / (2 * a);
+                System.out.println("A equação possui uma raiz real: " + root);
+            } else {
+                root1 = (-b - Math.sqrt(delta)) / (2 * a);
+                root2 = (-b + Math.sqrt(delta)) / (2 * a);
+                System.out.println("As raízes são reais e diferentes: " + root1 + " e " + root2);
             }
         }
 
-        else {
-            varD = varB * varB - (4 * varA * varC);
-            if (varD < 0) System.out.println("Não há raízes reais.");
-
-            //
-            else {
-                varR1 = (-varB - Math.sqrt(varD)) / (2 * varA);
-                varR2 = (-varB + Math.sqrt(varD)) / (2 * varA);
-            }
-
-            System.out.println(varR1);
-            System.out.println(varR2);
-        }
-
-        // TODO - verificar qual a saída necessária e sair
-        System.out.println();
         keyboard.close();
     }
 }

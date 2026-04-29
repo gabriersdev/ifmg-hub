@@ -5,11 +5,11 @@ import java.util.Scanner;
 public class Gabriel01 {
     public static void main(String[] args) {
         // Crie um programa Java que simule um sistema de acesso a um aplicativo.
-        // O programa deve pedir ao usuário um nome de usuário (String) e uma senha (numérica).
+        // O programa deve pedir ao usuário um nome de usuário (string) e uma senha (numérica).
 
         int scanPass, strPass;
-        String strLogin, scanLogin;
         boolean loginOK = false, passOK = false;
+        String strLogin, scanLogin;
         Scanner keyboard = new Scanner(System.in);
 
         strLogin = "admin";
@@ -17,8 +17,7 @@ public class Gabriel01 {
 
         System.out.println("Informe o seu usuário: ");
 
-        // Testar e consultar o funcionamento do método hasNext()
-        while (!keyboard.hasNext() || !loginOK) {
+        while (!loginOK) {
             scanLogin = keyboard.next();
             if (strLogin.equals(scanLogin)) loginOK = true;
             else System.out.println("Usuário não encontrado. Tente novamente: ");
@@ -26,13 +25,21 @@ public class Gabriel01 {
 
         System.out.println("Informe a senha (apenas números): ");
 
-        while (!keyboard.hasNextInt() || !passOK) {
-            scanPass = keyboard.nextInt();
-            // if (type())
-            if (strPass == scanPass) passOK = true;
-            else System.out.println("Senha incorreta. Tente novamente: ");
+        while (!passOK) {
+            if (keyboard.hasNextInt()) {
+                scanPass = keyboard.nextInt();
+                if (strPass == scanPass) passOK = true;
+                else System.out.println("Senha incorreta. Tente novamente: ");
+            }
+            //
+            else {
+                System.out.println("Informe a senha (apenas números): ");
+                // Re-solicita o preenchimento do usuário
+                keyboard.next();
+            }
         }
 
-        System.out.println("Acesso concedido. Bem-vindo, admin!");
+        System.out.println("Acesso concedido. Bem-vindo!");
+        keyboard.close();
     }
 }
