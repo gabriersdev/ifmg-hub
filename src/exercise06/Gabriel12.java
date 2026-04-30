@@ -13,5 +13,7 @@ public class Gabriel12 {
         //    b) A razão entre quantidade de acidentes por quantidade de veículos nas 5 cidades analisadas
         //    c) A média de veículos nas cinco cidades
         //    d) A média de acidentes de trânsito nas cidades com menos de 200 veículos
+
+
     }
 }
