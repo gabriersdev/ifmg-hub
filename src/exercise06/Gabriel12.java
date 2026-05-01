@@ -16,7 +16,7 @@ public class Gabriel12 {
         //    c) A média de veículos nas cinco cidades
         //    d) A média de acidentes de trânsito nas cidades com menos de 200 veículos
 
-        int countCities = 5, maxAccidents = 0, minAccidents = 0, totalVehicles = 0, totalAccidents = 0;
+        int countCities = 1, maxAccidents = 0, minAccidents = 0, totalVehicles = 0, totalAccidents = 0;
         int accidentsLess200Vehicles = 0, countLess200Vehicles = 0, vehicles, accidents;
         double ratio, avgVehicles, avgAccidentsLess200;
         String cityMaxAccidents = "", cityMinAccidents = "";
@@ -30,6 +30,11 @@ public class Gabriel12 {
             while (true) {
                 System.out.print("Número de veículos: ");
                 vehicles = input.nextInt();
+
+                // TODO - aplicar verificação de TIPO
+                if (input.hasNextInt()) System.out.println("INT");
+                else continue;
+
                 if (vehicles >= 0) break;
                 System.out.println("O valor não pode ser negativo.");
             }
@@ -37,18 +42,27 @@ public class Gabriel12 {
             while (true) {
                 System.out.print("Número de acidentes de trânsito: ");
                 accidents = input.nextInt();
+
+                // TODO - aplicar verificação de TIPO
+                if (input.hasNextInt()) System.out.println("INT");
+                else continue;
+
                 if (accidents >= 0) break;
                 System.out.println("O valor não pode ser negativo.");
             }
 
-            // FIX: este next line não faz sentido
+            // ?
             input.nextLine();
 
+            // Verifica se a razão de acidentes da cidade atual é MAIOR que o que já foi verificado
+            // E atualiza as informações
             if (accidents > maxAccidents) {
                 maxAccidents = accidents;
                 cityMaxAccidents = cityName;
             }
 
+            // Verifica se a razão de acidentes da cidade atual é MENOR que o que já foi verificado
+            // E atualiza as informações
             if (accidents < minAccidents) {
                 minAccidents = accidents;
                 cityMinAccidents = cityName;
