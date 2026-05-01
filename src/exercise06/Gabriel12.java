@@ -14,6 +14,6 @@ public class Gabriel12 {
         //    c) A média de veículos nas cinco cidades
         //    d) A média de acidentes de trânsito nas cidades com menos de 200 veículos
 
-
+        
     }
 }
