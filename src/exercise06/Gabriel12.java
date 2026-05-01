@@ -16,54 +16,72 @@ public class Gabriel12 {
         //    c) A média de veículos nas cinco cidades
         //    d) A média de acidentes de trânsito nas cidades com menos de 200 veículos
 
-        int countCities = 1, maxAccidents = 0, minAccidents = 0, totalVehicles = 0, totalAccidents = 0;
-        int accidentsLess200Vehicles = 0, countLess200Vehicles = 0, vehicles, accidents;
+        int countCities = 3, maxAccidents = 0, minAccidents = 0, totalVehicles = 0, totalAccidents = 0;
+        int i, valueInitIterator = 1, accidentsLess200Vehicles = 0, countLess200Vehicles = 0, vehicles, accidents;
         double ratio, avgVehicles, avgAccidentsLess200;
-        String cityMaxAccidents = "", cityMinAccidents = "";
+        String cityName = "", cityMaxAccidents = "", cityMinAccidents = "";
         Scanner input = new Scanner(System.in);
 
-        for (int i = 1; i <= countCities; i++) {
+        for (i = valueInitIterator; i <= countCities; i++) {
             System.out.printf("Informe os dados para a cidade #%d:%n", i);
-            System.out.print("Nome da cidade: ");
-            String cityName = input.nextLine();
 
             while (true) {
-                System.out.print("Número de veículos: ");
-                vehicles = input.nextInt();
+                System.out.println("Nome da cidade: ");
 
-                // TODO - aplicar verificação de TIPO
-                if (input.hasNextInt()) System.out.println("INT");
-                else continue;
+                if (input.hasNext()) {
+                    cityName = input.next();
 
-                if (vehicles >= 0) break;
-                System.out.println("O valor não pode ser negativo.");
+                    if (!cityName.isEmpty()) break;
+                    System.out.println("É preciso informar um nome para identificar a cidade!");
+                }
             }
 
             while (true) {
-                System.out.print("Número de acidentes de trânsito: ");
-                accidents = input.nextInt();
+                System.out.println("Quantidade de veículos: ");
 
-                // TODO - aplicar verificação de TIPO
-                if (input.hasNextInt()) System.out.println("INT");
-                else continue;
+                if (input.hasNextInt()) {
+                    vehicles = input.nextInt();
 
-                if (accidents >= 0) break;
-                System.out.println("O valor não pode ser negativo.");
+                    if (vehicles >= 0) break;
+                    System.out.println("O valor não pode ser negativo.");
+                }
+
+                // Solicita novamente que o usuário informe um número, enfatizando que precisa ser inteiro
+                // Usa o .next() pois o .nextInt() estoura um erro no console de tipo de variável
+                else {
+                    System.out.println("Informe um número inteiro.");
+                    input.next();
+                }
             }
 
-            // ?
-            input.nextLine();
+            while (true) {
+                System.out.println("Quantidade de acidentes de trânsito: ");
+
+                if (input.hasNextInt()) {
+                    accidents = input.nextInt();
+
+                    if (accidents >= 0) break;
+                    System.out.println("O valor não pode ser negativo.");
+                }
+
+                // Solicita novamente que o usuário informe um número, enfatizando que precisa ser inteiro
+                // Usa o .next() pois o .nextInt() estoura um erro no console de tipo de variável
+                else {
+                    System.out.println("Informe um número inteiro.");
+                    input.next();
+                }
+            }
 
             // Verifica se a razão de acidentes da cidade atual é MAIOR que o que já foi verificado
             // E atualiza as informações
-            if (accidents > maxAccidents) {
+            if (accidents > maxAccidents || i == valueInitIterator) {
                 maxAccidents = accidents;
                 cityMaxAccidents = cityName;
             }
 
             // Verifica se a razão de acidentes da cidade atual é MENOR que o que já foi verificado
             // E atualiza as informações
-            if (accidents < minAccidents) {
+            if (minAccidents > accidents || i == valueInitIterator) {
                 minAccidents = accidents;
                 cityMinAccidents = cityName;
             }
@@ -76,25 +94,28 @@ public class Gabriel12 {
                 countLess200Vehicles++;
             }
 
+            System.out.printf("RAZÃO: acidentes por veículos: %.2f%n", ((double) accidents / vehicles));
             System.out.println();
         }
 
+        input.close();
         System.out.println("Resultados: ");
 
-        System.out.printf("Maior índice de acidentes: %d na cidade %s%n", maxAccidents, cityMaxAccidents);
-        System.out.printf("Menor índice de acidentes: %d na cidade %s%n", minAccidents, cityMinAccidents);
+        System.out.printf("Maior índice de acidentes: %d na cidade de %s%n", maxAccidents, cityMaxAccidents);
+        System.out.printf("Menor índice de acidentes: %d na cidade de %s%n", minAccidents, cityMinAccidents);
 
         ratio = (totalVehicles > 0) ? (double) totalAccidents / totalVehicles : 0;
-        System.out.printf("Acidentes por veículos (total): %.4f%n", ratio);
+        System.out.printf("Quantidade de acidentes por veículos (considerando o total de %d veículos): %.2f%n", totalVehicles, ratio);
 
         avgVehicles = (double) totalVehicles / countCities;
-        System.out.printf("Média de veículos: %.2f%n", avgVehicles);
+        System.out.printf("Média de veículos por cidade: %.2f%n", avgVehicles);
 
         if (countLess200Vehicles > 0) {
             avgAccidentsLess200 = (double) accidentsLess200Vehicles / countLess200Vehicles;
             System.out.printf("Média de acidentes nas cidades com menos de 200 veículos: %.2f%n", avgAccidentsLess200);
         }
+
         //
-        else System.out.println("Não houve cidades com menos de 200 veículos.");
+        else System.out.println("Não houve apontamentos de cidades com menos de 200 veículos.");
     }
 }
