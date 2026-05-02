@@ -16,7 +16,7 @@ public class Gabriel12 {
         //    c) A média de veículos nas cinco cidades
         //    d) A média de acidentes de trânsito nas cidades com menos de 200 veículos
 
-        int countCities = 3, maxAccidents = 0, minAccidents = 0, totalVehicles = 0, totalAccidents = 0;
+        int countCities = 5, maxAccidents = 0, minAccidents = 0, totalVehicles = 0, totalAccidents = 0;
         int i, valueInitIterator = 1, accidentsLess200Vehicles = 0, countLess200Vehicles = 0, vehicles, accidents;
         double ratio, avgVehicles, avgAccidentsLess200;
         String cityName = "", cityMaxAccidents = "", cityMinAccidents = "";
@@ -28,11 +28,18 @@ public class Gabriel12 {
             while (true) {
                 System.out.println("Nome da cidade: ");
 
-                if (input.hasNext()) {
-                    cityName = input.next();
+                if (input.hasNextLine()) {
+                    cityName = input.nextLine();
 
-                    if (!cityName.isEmpty()) break;
+                    if (!cityName.trim().isEmpty()) break;
                     System.out.println("É preciso informar um nome para identificar a cidade!");
+                }
+
+                // Solicita novamente que o usuário informe um nome da cidade
+                // Usa o .nextLine()
+                else {
+                    System.out.println("Informe o nome da cidade.");
+                    input.nextLine();
                 }
             }
 
@@ -42,7 +49,11 @@ public class Gabriel12 {
                 if (input.hasNextInt()) {
                     vehicles = input.nextInt();
 
-                    if (vehicles >= 0) break;
+                    if (vehicles >= 0) {
+                        input.nextLine();
+                        break;
+                    }
+
                     System.out.println("O valor não pode ser negativo.");
                 }
 
@@ -60,7 +71,10 @@ public class Gabriel12 {
                 if (input.hasNextInt()) {
                     accidents = input.nextInt();
 
-                    if (accidents >= 0) break;
+                    if (accidents >= 0) {
+                        input.nextLine();
+                        break;
+                    }
                     System.out.println("O valor não pode ser negativo.");
                 }
 
@@ -72,14 +86,14 @@ public class Gabriel12 {
                 }
             }
 
-            // Verifica se a razão de acidentes da cidade atual é MAIOR que o que já foi verificado
+            // Verifica se o índice de acidentes da cidade atual é MAIOR que o que já foi verificado
             // E atualiza as informações
             if (accidents > maxAccidents || i == valueInitIterator) {
                 maxAccidents = accidents;
                 cityMaxAccidents = cityName;
             }
 
-            // Verifica se a razão de acidentes da cidade atual é MENOR que o que já foi verificado
+            // Verifica se o índice de acidentes da cidade atual é MENOR que o que já foi verificado
             // E atualiza as informações
             if (minAccidents > accidents || i == valueInitIterator) {
                 minAccidents = accidents;
@@ -94,18 +108,19 @@ public class Gabriel12 {
                 countLess200Vehicles++;
             }
 
-            System.out.printf("RAZÃO: acidentes por veículos: %.2f%n", ((double) accidents / vehicles));
+            System.out.printf("RAZÃO: acidentes por veículos: %.2f%n", (accidents != 0 ? (double) accidents / vehicles : 0));
             System.out.println();
         }
 
         input.close();
         System.out.println("Resultados: ");
 
+        System.out.printf("Total de veículos: %d%n", totalVehicles);
         System.out.printf("Maior índice de acidentes: %d na cidade de %s%n", maxAccidents, cityMaxAccidents);
         System.out.printf("Menor índice de acidentes: %d na cidade de %s%n", minAccidents, cityMinAccidents);
 
         ratio = (totalVehicles > 0) ? (double) totalAccidents / totalVehicles : 0;
-        System.out.printf("Quantidade de acidentes por veículos (considerando o total de %d veículos): %.2f%n", totalVehicles, ratio);
+        System.out.printf("Quantidade de acidentes por veículos: %.2f%n", ratio);
 
         avgVehicles = (double) totalVehicles / countCities;
         System.out.printf("Média de veículos por cidade: %.2f%n", avgVehicles);
