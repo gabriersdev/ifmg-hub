@@ -31,7 +31,11 @@ public class Gabriel12 {
                 if (input.hasNextLine()) {
                     cityName = input.nextLine();
 
-                    if (!cityName.trim().isEmpty()) break;
+                    if (!cityName.trim().isEmpty()) {
+                        cityName = cityName.toUpperCase();
+                        break;
+                    }
+
                     System.out.println("É preciso informar um nome para identificar a cidade!");
                 }
 
@@ -75,6 +79,7 @@ public class Gabriel12 {
                         input.nextLine();
                         break;
                     }
+
                     System.out.println("O valor não pode ser negativo.");
                 }
 
