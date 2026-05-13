@@ -10,8 +10,6 @@ public class Gabriel15 {
          */
 
         // Fibonacci é a soma dos 2 últimos números
-
-        int number;
-        Scanner keyboard = new Scanner(System.in);
+        // ...
     }
 }
