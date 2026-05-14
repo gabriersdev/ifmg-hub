@@ -20,8 +20,13 @@ public class Gabriel14 {
             if (scanner.hasNextInt()) {
                 initialNumber = scanner.nextInt();
 
-                if (initialNumber < 1) {
-                    System.out.println("Não é possível obter o fatorial de zero ou um número negativo.");
+                if (initialNumber < 0) {
+                    System.out.println("Não é possível obter o fatorial de um número negativo.");
+                    break;
+                }
+
+                else if (initialNumber == 0) {
+                    System.out.printf("O !%d é %d", initialNumber, 0);
                     break;
                 }
 
