@@ -42,7 +42,6 @@ public class Gabriel13 {
 
                     // Verifica se, para algum dos números entre 5 e N seja possível dividir
                     for (i = 5; i * i <= n; i = i + 6) {
-                        // Seja possível dividir sem ter resto
                         if (n % i == 0 || n % (i + 2) == 0) {
                             System.out.println("NÃO é PRIMO");
                             break;
