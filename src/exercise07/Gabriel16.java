@@ -15,7 +15,7 @@ public class Gabriel16 {
         String numberBIN, numberHEX, s, intermediateSTR;
         Scanner keyboard = new Scanner(System.in);
         boolean invalid = false;
-        int sInInteger, intermediateINT, numberDEC = 0, numberOCT = 0;
+        int sInInteger, intermediateINT = 0, numberDEC = 0, numberOCT = 0;
 
         while (true) {
             System.out.println("Informe um número binário: ");
@@ -51,13 +51,24 @@ public class Gabriel16 {
                     sInInteger = Integer.parseInt(s);
                     numberDEC += sInInteger * (int) Math.pow(2, j);
                 }
-                    // System.out.println("sInInteger: POS " + i + " VAL " + sInInteger);
+
+                // System.out.println("sInInteger: POS " + i + " VAL " + sInInteger);
 
                 // Conversão do que foi descoberto como DECIMAL para OCTAL
                 // Tem que dividir e obter o resto
+                for (; ; ) {
+                    intermediateINT = numberDEC;
 
-                // intermediateINT = numberDEC;
-                // System.out.println(intermediateINT / 8, intermediateINT % 8);
+                    String strConvert = "";
+
+                    int divisionPer8 = intermediateINT / 8;
+                    int divisionRestPer8 = intermediateINT % 8;
+
+                    intermediateINT = divisionPer8;
+
+
+                    break;
+                }
 
                 System.out.println("numberBIN: " + numberBIN);
                 System.out.println("numberDEC: " + numberDEC);
