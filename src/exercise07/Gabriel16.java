@@ -19,6 +19,7 @@ public class Gabriel16 {
         while (true) {
             System.out.println("Informe um número binário: ");
 
+            // TODO - rever a lógica!
 //            if (keyboard.hasNext()) {
             if (true) {
 //                numberBIN = keyboard.next().trim();

@@ -6,5 +6,7 @@ public class Gabriel22 {
          * 22. O valor aproximado de PI pode ser calculado usando os 51 primeiros termos da seguinte série: Sendo PI = ³^Raiz(Sx32). Sabendo disso, implemente um algoritmo que calcule e imprima o valor de PI
          * utilizando a série apresentada.
          */
+
+        // #
     }
 }

@@ -19,5 +19,7 @@ public class Gabriel21 {
          * - O total de consumo para os três tipos de consumidor;
          * - A média de consumo dos tipos 1 e 2.
          */
+
+        // #
     }
 }

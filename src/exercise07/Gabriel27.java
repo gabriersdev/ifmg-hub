@@ -26,6 +26,7 @@ public class Gabriel27 {
                     System.out.println(hashtagSign);
                     hashtagSign = hashtagSign.concat("#");
                 }
+
                 break;
             }
 

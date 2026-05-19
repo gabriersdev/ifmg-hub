@@ -16,8 +16,8 @@ public class Gabriel20 {
             populationA += populationA * birthsTaxA;
             populationB += populationB * birthsTaxB;
 
-//            System.out.println("POPULACAO A: " + populationA);
-//            System.out.println("POPULACAO B: " + populationB);
+            // System.out.println("POPULACAO A: " + populationA);
+            // System.out.println("POPULACAO B: " + populationB);
 
             year += 1;
         }

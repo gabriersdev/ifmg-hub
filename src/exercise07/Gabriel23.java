@@ -7,5 +7,7 @@ public class Gabriel23 {
          * usuário em graus, mas a sequência funciona com o valor em radianos. O valor do seno de X será
          * calculado pela soma dos 15 primeiros termos da série a seguir:
          */
+
+        // #
     }
 }
