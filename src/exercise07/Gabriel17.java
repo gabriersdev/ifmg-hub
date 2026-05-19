@@ -7,5 +7,14 @@ public class Gabriel17 {
          * aritméticas básicas com dois números digitados pelo usuário. O programa implementado deve mostrar
          * seguinte menu ao usuário. Não se esqueça de verificar se as operações podem ser realizadas.
          */
+
+        // Operações:
+        // 1 - Soma
+        // 2 - Subtração
+        // 3 - Multiplicação
+        // 4 - Divisão
+        // 5 - Sair
+
+        // MENU
     }
 }

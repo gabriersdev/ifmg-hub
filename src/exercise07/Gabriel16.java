@@ -1,6 +1,5 @@
 package exercise07;
 
-import java.sql.SQLOutput;
 import java.util.Scanner;
 
 public class Gabriel16 {
@@ -65,7 +64,6 @@ public class Gabriel16 {
                     int divisionRestPer8 = intermediateINT % 8;
 
                     intermediateINT = divisionPer8;
-
 
                     break;
                 }
