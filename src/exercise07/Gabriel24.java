@@ -9,28 +9,40 @@ public class Gabriel24 {
          * positivos A e B, determine o quociente e o resto da divisão de A por B.
          */
 
-        // TODO - corrigir
-
-        int numberA, numberB, continueExec;
+        int numberA, numberB, continueExec, quotient, remainder;
         Scanner keyboard = new Scanner(System.in);
 
         while (true) {
-            System.out.println("Calcular");
+            System.out.println("Calculo da divisão");
 
-            System.out.println("Informe o número A: ");
+            System.out.print("Informe o número A (dividendo): ");
             numberA = keyboard.nextInt();
 
-            System.out.println("Informe o número B: ");
+            System.out.print("Informe o número B (divisor): ");
             numberB = keyboard.nextInt();
 
-            System.out.println("Quociente: " + (numberA / numberB));
-            System.out.println("Resto: " + (numberA % numberB));
+            if (numberB == 0) System.out.println("O divisor não pode ser zero.");
 
-            System.out.println("Digite 1 para continuar: ");
+                //
+            else {
+                quotient = 0;
+                remainder = numberA;
+
+                while (remainder >= numberB) {
+                    remainder = remainder - numberB;
+                    quotient = quotient + 1;
+                }
+
+                System.out.println("Quociente: " + quotient);
+                System.out.println("Resto: " + remainder);
+            }
+
+            System.out.print("Digite 1 para continuar: ");
             continueExec = keyboard.nextInt();
 
-            if (continueExec == 1) continue;
-            else break;
+            if (continueExec != 1) break;
         }
+
+        keyboard.close();
     }
 }
