@@ -9,13 +9,28 @@ public class Gabriel24 {
          * positivos A e B, determine o quociente e o resto da divisão de A por B.
          */
 
-        int numberA, numberB;
+        // TODO - corrigir
+
+        int numberA, numberB, continueExec;
         Scanner keyboard = new Scanner(System.in);
 
-        numberA = keyboard.nextInt();
-        numberB = keyboard.nextInt();
+        while (true) {
+            System.out.println("Calcular");
 
-        System.out.println("Quociente: " + (numberA / numberB));
-        System.out.println("Resto: " + (numberA % numberB));
+            System.out.println("Informe o número A: ");
+            numberA = keyboard.nextInt();
+
+            System.out.println("Informe o número B: ");
+            numberB = keyboard.nextInt();
+
+            System.out.println("Quociente: " + (numberA / numberB));
+            System.out.println("Resto: " + (numberA % numberB));
+
+            System.out.println("Digite 1 para continuar: ");
+            continueExec = keyboard.nextInt();
+
+            if (continueExec == 1) continue;
+            else break;
+        }
     }
 }

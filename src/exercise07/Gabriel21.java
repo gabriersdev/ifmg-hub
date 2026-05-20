@@ -26,7 +26,7 @@ public class Gabriel21 {
         double kwhConsumed, cost, totalType1 = 0.0, totalType2 = 0.0, totalType3 = 0.0, averageType1, averageType2;
         Scanner input;
 
-        System.out.println("Digite o Número do consumidor (0 para encerrar): ");
+        System.out.println("Digite o número do consumidor (0 para encerrar): ");
         input = new Scanner(System.in);
         consumerNumber = input.nextInt();
 

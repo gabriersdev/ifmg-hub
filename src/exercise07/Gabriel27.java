@@ -8,6 +8,7 @@ public class Gabriel27 {
          * 27. Escreva um programa em JAVA que imprima o triângulo abaixo, em que a altura do triângulo (número de
          * linhas) é fornecido pelo usuário.
          */
+
         String hashtagSign = "#";
         Scanner keyboard = new Scanner(System.in);
         int i, numberOfLines;

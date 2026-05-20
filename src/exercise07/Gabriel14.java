@@ -8,7 +8,7 @@ public class Gabriel14 {
          * 14. Faça um programa que calcule e imprima o fatorial do valor N. O valor de N será fornecido de entrada
          * pelo usuário. O fatorial de um número positivo N qualquer (representado por N!) é o produto de todos os
          * inteiros positivos menores ou iguais à N, ou seja, Fatorial (N) = 1 * 2 * 3 * ... * N. Por exemplo, o
-         * fatorial de 5 = 1*2*3*4*5 = 120.
+         * fatorial de 5 = 1 * 2 * 3 * 4 * 5 = 120.
          */
 
         int accumulator = 1, number, initialNumber;
@@ -23,9 +23,7 @@ public class Gabriel14 {
                 if (initialNumber < 0) {
                     System.out.println("Não é possível obter o fatorial de um número negativo.");
                     break;
-                }
-
-                else if (initialNumber == 0) {
+                } else if (initialNumber == 0) {
                     System.out.printf("O !%d é %d", initialNumber, 0);
                     break;
                 }
