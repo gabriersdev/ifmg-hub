@@ -9,8 +9,6 @@ public class Gabriel24 {
          * positivos A e B, determine o quociente e o resto da divisão de A por B.
          */
 
-        // TODO - esse enunciado não faz sentido considerando que é exercício de repetição
-
         int numberA, numberB;
         Scanner keyboard = new Scanner(System.in);
 

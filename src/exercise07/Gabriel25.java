@@ -10,7 +10,6 @@ public class Gabriel25 {
         int quantityPNumbers = 5, quantityPNFound = 0;
 
         // Encontrar os divisores de um número (numero % divisor == 0)
-
-
+        //
     }
 }
