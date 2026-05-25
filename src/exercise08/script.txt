@@ -1,0 +1,76 @@
+1. Uma turma tem 40 alunos. Faça um programa para ler a idade de todos os alunos e logo em seguida imprimir:
+a) Total de alunos com idade menor ou igual a 16 anos
+b) Total de alunos com idade maior que 16 anos
+c) Média das idades
+d) Idade do aluno mais novo
+e) Idade do aluno mais velho
+
+2. Faça um algoritmo em java que preencha dois vetores de 10 posições e exiba um terceiro vetor resultante em que cada posição é a soma das posições dos outros vetores.
+Exemplo
+vet1 [10 27 3 -4 -6 19 6 9 14 53]
+vet2 [0 -76 4 5 15 -6 19 1 47]
+vet3 [10 20 90 -11 -4 0 28 15 100]
+
+3. Construa um programa JAVA que preenche dois vetores reais de 10 posições, depois crie um terceiro vetor cujo conteúdo de cada posição é: 1, se o número armazenado em uma posição do vetor é o mesmo armazenado na posição respectiva do 2º, e 0, caso contrário.
+
+4. Faça um programa que solicite o preenchimento de um vetor com 10 posições chamado Vetor Original.
+Em seguida, o programa deve armazenar os números digitados de maneira invertida em vetor chamado Vetor Invertido.
+Vetor Original: 10, 15, 9, 14, 2, 3, 6, 8, 20, 11
+Vetor Invertido: 11, 20, 8, 6, 3, 2, 14, 9, 15, 10
+
+5. Implemente um algoritmo que preencha com valores inteiros um vetor de 10 posições.
+Em seguida solicite o usuário que digite um valor qualquer e pesquise se o valor informado pelo usuário pertence ou não ao vetor preenchido inicialmente.
+Caso não, mostre a mensagem "O valor X não está presente no vetor";
+caso sim, mostre a mensagem "O valor X está na posição Y do vetor". Exemplo:
+Vetor preenchido: [50 60 15 22 33 84 100]
+Valor digitado pelo usuário: 30 -> Mensagem: "Valor 30 não está presente no vetor"
+Valor digitado pelo usuário: 84 -> Mensagem: "Valor 84 está na 6ª posição do vetor"
+
+6. Faça um programa em JAVA que carregue em um vetor os N primeiros valores da série de Fibonacci.
+Fibonacci = [1,1,2,3,5,8,13,21,....]
+
+7. Leia um conjunto de N números inteiros (n<=100). Faça a divisão desses números em dois vetores seguindo a regra: Vetor1 - Apenas números positivos e pares; e Vetor2 - Apenas números ímpares e/ou negativos.
+
+8. Fazer um algoritmo que:
+a. Leia um conjunto de valores inteiros correspondentes a 80 notas dos alunos de uma turma, notas estas que variam de 0 a 10;
+b. Calcule a frequência absoluta e a frequência relativa de cada nota;
+c. Imprima uma tabela contendo os valores das notas (de 0 a 10) e suas respectivas frequências absoluta e relativa.
+
+9. Escreva um programa que leia um conjunto de 50 fichas correspondente à alunos e armazene-as em vetores, cada uma contendo, a altura e o código do sexo de uma pessoa (codigo=1 se for masculino e 2 se for feminino), e calcule e imprima:
+- A maior, menor e a médias das alturas da turma;
+- As mulheres com altura acima da média da altura dos homens;
+- Os homens com altura abaixo da média da altura das mulheres;
+- As pessoas com altura abaixo da média da turma.
+
+10. Faça um programa que carregue dois vetores de dez elementos e mostre um terceiro vetor resultante da intercalação desses dois vetores.
+
+11. Desenvolva um programa que identifique, armazene em um vetor e mostre os 10 primeiros números primos a partir de 100. O algoritmo fica muito mais eficiente utilizando o crivo de Eratóstenes.
+Como desafio, implemente o algoritmo utilizando a "forma tradicional" e depois utilizando o crivo de Eratóstenes, compute os tempos de ambas implementações e verifique a diferença entre os mesmos.
+
+12. Implemente um algoritmo que verifique se um vetor preenchido pelo usuário está ordenado crescentemente ou não.
+
+13. Faça um programa que leia 10 números digitados pelo usuário e os armazene em um vetor.
+Após isso, ordene esse vetor de forma crescente e mostre o resultado.
+
+14. O desvio padrão de uma amostra de dados calcula o quanto de variação existe da amostra em relação à média.
+Valores baixos indicam que os dados tendem a estar próximos à média, por outro lado, valores altos indicam maior dispersão dos dados.
+O gerente de produção da Refrigerator Tabajará está avaliando o processo de fabricação de seus refrigerantes em lata, especificamente a etapa de preenchimento do conteúdo.
+As latas devem possuir 390 ml, com desvio padrão de + ou - 5 ml.
+Na análise foram coletadas 20 amostras aleatórias da linha de produção, medindo-se a quantidade de produto das mesmas.
+Você é o programador da empresa, e ficou incumbido de implementar um programa que auxilie seu gerente, mostrando ao mesmo a média e o desvio padrão entre os elementos das amostras.
+Além disso, exiba se o processo deve ou não ser revisado.
+
+15. Faça um programa que simule um controle bancário. Para tanto, devem ser lidos os códigos de dez contas e seus respectivos saldos.
+Os códigos devem ser armazenados em um vetor de números inteiros (não pode haver mais de uma conta com o mesmo código) e os saldos devem ser armazenados em um vetor de números reais.
+O saldo deverá ser cadastrado na mesma posição do código.
+Por exemplo, se a conta 504 foi armazenada na quinta posição do vetor de códigos, seu saldo deverá ficar na quinta posição do vetor de saldos.
+Depois de fazer uma leitura dos valores, deverá aparecer o seguinte menu na tela:
+Menu de Operações
+1. Efetuar depósito
+2. Efetuar saque
+3. Consultar saldo em conta
+4. Finalizar o programa
+- Para efetuar o depósito, deve-se solicitar o código da conta e o valor a ser depositado. Se a conta não estiver cadastrada, deverá aparecer a mensagem "Conta não encontrada!" e voltar ao menu. Se a conta existir, atualizar seu saldo;
+- Para efetuar saque, deve-se solicitar o código da conta e o valor a ser sacado. Se a conta não estiver cadastrada, deverá aparecer a mensagem "Conta não encontrada!" e voltar ao menu. Se a conta existir, verificar se o seu saldo é suficiente para cobrir o saque. (Suponha que a conta não possa ficar com saldo negativo). Se o saldo for suficiente, realizar o saque e voltar ao menu. Caso contrário, mostrar a mensagem "Saldo insuficiente!" e voltar ao menu.
+- Para consultar saldo em conta, deve-se solicitar o código da conta a ser pesquisada. Se a conta não estiver cadastrada, deverá aparecer a mensagem "Conta não encontrada!"; senão, mostrar a conta com seu respectivo saldo e voltar ao menu;
+- O programa termina quando for digitada a opção 4 - Finalizar o programa.
