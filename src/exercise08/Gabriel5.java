@@ -11,5 +11,7 @@ public class Gabriel5 {
          * Valor digitado pelo usuário: 30 -> Mensagem: "Valor 30 não está presente no vetor"
          * Valor digitado pelo usuário: 84 -> Mensagem: "Valor 84 está na 6ª posição do vetor"
          */
+
+
     }
 }
