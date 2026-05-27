@@ -18,23 +18,26 @@ public class Gabriel5 {
          */
 
         int[] vector = {24, 56, 19, 69, 43, 53, 51, 13, 40, 70};
-        int currentValue;
+        int currentValue = 0, valueExistsInVector = 0;
         Scanner keyboard = new Scanner(System.in);
 
         for (int i = 0; i < 10; i++) {
+            System.out.println("Informe um valor: ");
             currentValue = keyboard.nextInt();
 
             for (int u = 0; u < vector.length; u++) {
                 if (vector[u] == currentValue) {
-                    System.out.printf("%n Valor XX não está presente no vetor %n");
-                    System.out.printf("%n Valor XX está XX no vetor %n");
-
+                    System.out.printf("%nValor %d está na %dª posição do vetor.%n", currentValue, (u + 1));
+                    valueExistsInVector = 1;
+                    i = 10; // para parar o FOR externo
                     break;
                 }
             }
+
+            if (valueExistsInVector == 0) System.out.printf("%nO Valor %d não está presente no vetor. Tente novamente.%n", currentValue);
         }
 
-        System.out.println(Arrays.toString(vector));
+        System.out.printf("O vetor era: " + Arrays.toString(vector));
 
         keyboard.close();
     }
