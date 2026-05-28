@@ -4,7 +4,12 @@ import java.util.Scanner;
 
 public class GabrielAdditionalExercise03 {
     public static void main(String[] args) {
-        // TODO - REVER: a necessidade de usar DOUBLE e INT
+        /*
+         * ENUNCIADO: Desenvolva um programa que desenhe uma árvore de Natal na tela. O usuário deverá
+         * fornecer a altura da árvore como um número inteiro ímpar. O programa deve validar a entrada,
+         * garantindo que o número seja ímpar e maior ou igual a 3. A árvore deve ser construída usando
+         * o caractere '#' e espaços em branco, de forma que o tronco e a copa fiquem centralizados.
+         */
         double height;
         int middle, i, j, k, intermediateHeight;
         // LÓGICA: a quantidade de linhas PODE ser PAR. O que não pode ser PAR é a quantidade de itens na linha, pois não vai ficar legal.
