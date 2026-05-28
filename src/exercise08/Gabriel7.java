@@ -10,53 +10,48 @@ public class Gabriel7 {
          * Vetor1 - Apenas números positivos e pares; e Vetor2 - Apenas números ímpares e/ou negativos.
          */
 
-        int n, i = 1, countNumbersNeg = 0, countNumberPos = 0;
-        int[] vector = new int[100];
+        int n, count = 0, evenPosCount = 0, oddOrNegCount = 0;
+        int[] allNumbers = new int[100];
+        int[] vector1, vector2;
         Scanner scanner = new Scanner(System.in);
         String keyboard;
 
-        System.out.println("Formação de um VETOR");
+        System.out.println("Informe até 100 números inteiros. Digite 'P' para parar.");
 
-        while (true) {
-            i += 1;
-
-            if (i >= 100) {
-                System.out.println("O vetor atingiu a quantidade máxima de elementos");
-                break;
-            }
-
-            System.out.println("Informe um número N. Digite P para parar: ");
+        while (count < 100) {
+            System.out.print("Informe o número " + (count + 1) + ": ");
             keyboard = scanner.next();
 
-            if (keyboard.toUpperCase().trim().equals("P")) break;
-            n = Integer.parseInt(keyboard);
+            if (keyboard.toUpperCase().equals("P")) break;
 
-            System.out.println("N: " + n);
-
-            if (n > 100) {
-                System.out.println("O número deve ser MENOR ou IGUAL a 100.");
-                continue;
-            }
-
-            //
-            else {
-                vector[i] = n;
-                if (n < 0) countNumbersNeg += 1;
-                else countNumberPos += 1;
-                break;
+            try {
+                n = Integer.parseInt(keyboard);
+                allNumbers[count] = n;
+                count++;
+            } catch (Exception e) {
+                System.out.println("Entrada inválida. Por favor, insira um número inteiro ou 'P' para parar.");
             }
         }
 
-        int[] vector2NumbersNeg = new int[countNumbersNeg];
-        int[] vector2NumberPos = new int[countNumberPos];
-
-        for (int u = 0; u < i; i++) {
-            if (vector[u] < 0) vector2NumbersNeg[u] = vector[u];
-            else vector2NumberPos[u] = vector[u];
+        // Conta quantos números pertencem a cada categoria
+        for (int i = 0; i < count; i++) {
+            int num = allNumbers[i];
+            if (num > 0 && num % 2 == 0) evenPosCount++;
+            else oddOrNegCount++;
         }
 
-        System.out.println(Arrays.toString(vector));
-        System.out.println(Arrays.toString(vector2NumbersNeg));
-        System.out.println(Arrays.toString(vector2NumberPos));
+        vector1 = new int[evenPosCount];
+        vector2 = new int[oddOrNegCount];
+        int index1 = 0, index2 = 0;
+
+        // Preenche os dois vetores com base na regra
+        for (int i = 0; i < count; i++) {
+            int num = allNumbers[i];
+            if (num > 0 && num % 2 == 0) vector1[index1++] = num;
+            else vector2[index2++] = num;
+        }
+
+        System.out.println("\nVetor 1 (Positivos e Pares): " + Arrays.toString(vector1));
+        System.out.println("Vetor 2 (Ímpares e/ou Negativos): " + Arrays.toString(vector2));
     }
 }

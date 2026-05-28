@@ -8,5 +8,7 @@ public class Gabriel8 {
          * b. Calcule a frequência absoluta e a frequência relativa de cada nota;
          * c. Imprima uma tabela contendo os valores das notas (de 0 a 10) e suas respectivas frequências absoluta e relativa.
          */
+
+        
     }
 }
