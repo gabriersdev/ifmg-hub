@@ -30,3 +30,12 @@ bin/
 
 # Idea files
 .idea
+
+# NODE Files
+node_modules
+
+# AI
+.claude
+
+# Output files
+/dist-zip/*.zip
