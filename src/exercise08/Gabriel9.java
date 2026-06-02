@@ -15,18 +15,17 @@ public class Gabriel9 {
         double[] alturas;
         int[] sexos;
         double maiorAltura, menorAltura, mediaTurma, mediaHomens, mediaMulheres, somaTurma, somaHomens, somaMulheres;
-        int i, totalHomens, totalMulheres;
-        final int TOTAL_ALUNOS = 50;
+        int i, totalHomens, totalMulheres, totalAlunos = 50;
 
-        alturas = new double[TOTAL_ALUNOS];
-        sexos = new int[TOTAL_ALUNOS];
+        alturas = new double[totalAlunos];
+        sexos = new int[totalAlunos];
         somaTurma = 0;
         somaHomens = 0;
         somaMulheres = 0;
         totalHomens = 0;
         totalMulheres = 0;
 
-        for (i = 0; i < TOTAL_ALUNOS; i++) {
+        for (i = 0; i < totalAlunos; i++) {
             System.out.printf("Ficha %d - altura (m): ", i + 1);
             alturas[i] = in.nextDouble();
             System.out.printf("Ficha %d - sexo (1-masculino, 2-feminino): ", i + 1);
@@ -36,7 +35,7 @@ public class Gabriel9 {
         maiorAltura = alturas[0];
         menorAltura = alturas[0];
 
-        for (i = 0; i < TOTAL_ALUNOS; i++) {
+        for (i = 0; i < totalAlunos; i++) {
             if (alturas[i] > maiorAltura) maiorAltura = alturas[i];
             if (alturas[i] < menorAltura) menorAltura = alturas[i];
 
@@ -51,7 +50,7 @@ public class Gabriel9 {
             }
         }
 
-        mediaTurma = somaTurma / TOTAL_ALUNOS;
+        mediaTurma = somaTurma / totalAlunos;
         mediaHomens = (totalHomens > 0) ? somaHomens / totalHomens : 0;
         mediaMulheres = (totalMulheres > 0) ? somaMulheres / totalMulheres : 0;
 
@@ -60,17 +59,17 @@ public class Gabriel9 {
         System.out.printf("Média de altura da turma: %.2f m%n", mediaTurma);
 
         System.out.println("\nMulheres com altura acima da média dos homens:");
-        for (i = 0; i < TOTAL_ALUNOS; i++) {
+        for (i = 0; i < totalAlunos; i++) {
             if (sexos[i] == 2 && alturas[i] > mediaHomens) System.out.printf("Aluna %d: %.2f m%n", i + 1, alturas[i]);
         }
 
         System.out.println("\nHomens com altura abaixo da média das mulheres:");
-        for (i = 0; i < TOTAL_ALUNOS; i++) {
+        for (i = 0; i < totalAlunos; i++) {
             if (sexos[i] == 1 && alturas[i] < mediaMulheres) System.out.printf("Aluno %d: %.2f m%n", i + 1, alturas[i]);
         }
 
         System.out.println("\nPessoas com altura abaixo da média da turma:");
-        for (i = 0; i < TOTAL_ALUNOS; i++) {
+        for (i = 0; i < totalAlunos; i++) {
             if (alturas[i] < mediaTurma) System.out.printf("Pessoa %d (sexo %d): %.2f m%n", i + 1, sexos[i], alturas[i]);
         }
 

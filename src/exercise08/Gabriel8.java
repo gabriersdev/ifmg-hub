@@ -12,25 +12,24 @@ public class Gabriel8 {
 
         int[] notas, frequenciaAbsoluta;
         double[] frequenciaRelativa;
-        int i, nota;
-        final int TOTAL_ALUNOS = 80;
+        int i, nota, totalAlunos = 80;
 
-        notas = new int[TOTAL_ALUNOS];
+        notas = new int[totalAlunos];
         frequenciaAbsoluta = new int[11];
         frequenciaRelativa = new double[11];
 
         System.out.println("Digite as 80 notas (de 0 a 10):");
-        for (i = 0; i < TOTAL_ALUNOS; i++) {
+        for (i = 0; i < totalAlunos; i++) {
             notas[i] = in.nextInt();
         }
 
-        for (i = 0; i < TOTAL_ALUNOS; i++) {
+        for (i = 0; i < totalAlunos; i++) {
             nota = notas[i];
             frequenciaAbsoluta[nota]++;
         }
 
         for (i = 0; i < frequenciaAbsoluta.length; i++) {
-            frequenciaRelativa[i] = (double) frequenciaAbsoluta[i] / TOTAL_ALUNOS;
+            frequenciaRelativa[i] = (double) frequenciaAbsoluta[i] / totalAlunos;
         }
 
         System.out.println("Tabela de Frequência das Notas");
