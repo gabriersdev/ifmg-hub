@@ -4,41 +4,48 @@ import java.util.Scanner;
 
 public class Gabriel14 {
     public static void main(String[] args) {
-        Scanner in = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
         /* 14. O desvio padrão de uma amostra de dados calcula o quanto de variação existe da amostra em relação à média.
         As latas devem possuir 390 ml, com desvio padrão de + ou - 5 ml.
         Foram coletadas 20 amostras aleatórias da linha de produção, medindo-se a quantidade de produto das mesmas.
         Mostre a média e o desvio padrão entre os elementos das amostras e exiba se o processo deve ou não ser revisado. */
 
-        int i;
-        double soma, media, desvioPadrao, variancia;
+        int indice;
+        double somaDasAmostras, mediaDasAmostras, desvioPadrao, somaDosQuadradosDaDiferenca;
+        final int numeroDeAmostras = 20;
         double[] amostras;
 
-        amostras = new double[20];
-        soma = 0.0;
+        amostras = new double[numeroDeAmostras];
+        somaDasAmostras = 0.0;
 
-        System.out.println("Digite as 20 amostras (em ml):");
-        for (i = 0; i < 20; i++) {
-            amostras[i] = in.nextDouble();
-            soma += amostras[i];
+        System.out.println("Digite as " + numeroDeAmostras + " amostras (em ml):");
+        for (indice = 0; indice < numeroDeAmostras; indice++) {
+            amostras[indice] = scanner.nextDouble();
+            somaDasAmostras += amostras[indice];
         }
 
-        media = soma / 20;
+        mediaDasAmostras = somaDasAmostras / numeroDeAmostras;
 
-        variancia = 0.0;
-        for (i = 0; i < 20; i++) {
-            variancia += Math.pow(amostras[i] - media, 2);
+        somaDosQuadradosDaDiferenca = 0.0;
+        for (indice = 0; indice < numeroDeAmostras; indice++) {
+            somaDosQuadradosDaDiferenca += Math.pow(amostras[indice] - mediaDasAmostras, 2);
         }
-        variancia /= 20;
+        
+        // A variância é a média da soma dos quadrados da diferença
+        double variancia = somaDosQuadradosDaDiferenca / numeroDeAmostras;
 
         desvioPadrao = Math.sqrt(variancia);
 
-        System.out.printf("Média: %.2f ml%n", media);
+        System.out.printf("Média: %.2f ml%n", mediaDasAmostras);
         System.out.printf("Desvio Padrão: %.2f ml%n", desvioPadrao);
 
-        if (desvioPadrao > 5) System.out.println("Processo de fabricação precisa ser revisado.");
-        else System.out.println("Processo de fabricação está dentro dos padrões.");
+        final double desvioPadraoMaximo = 5.0;
+        if (desvioPadrao > desvioPadraoMaximo) {
+            System.out.println("Processo de fabricação precisa ser revisado.");
+        } else {
+            System.out.println("Processo de fabricação está dentro dos padrões.");
+        }
 
-        in.close();
+        scanner.close();
     }
 }

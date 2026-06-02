@@ -4,39 +4,42 @@ import java.util.Scanner;
 
 public class Gabriel12 {
     public static void main(String[] args) {
-        Scanner in = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
         /* 12. Implemente um algoritmo que verifique se um vetor preenchido pelo usuário está ordenado crescentemente ou não. */
 
-        int i, tamanho;
-        boolean ordenado;
+        int indice, tamanhoDoVetor;
+        boolean estaOrdenado;
         int[] vetor;
 
         System.out.print("Informe o tamanho do vetor: ");
-        tamanho = in.nextInt();
+        tamanhoDoVetor = scanner.nextInt();
 
-        if (tamanho <= 0) {
+        if (tamanhoDoVetor <= 0) {
             System.out.println("Tamanho inválido.");
-            in.close();
+            scanner.close();
             return;
         }
 
-        vetor = new int[tamanho];
-        System.out.println("Digite os " + tamanho + " elementos do vetor:");
-        for (i = 0; i < tamanho; i++) {
-            vetor[i] = in.nextInt();
+        vetor = new int[tamanhoDoVetor];
+        System.out.println("Digite os " + tamanhoDoVetor + " elementos do vetor:");
+        for (indice = 0; indice < tamanhoDoVetor; indice++) {
+            vetor[indice] = scanner.nextInt();
         }
 
-        ordenado = true;
-        for (i = 0; i < tamanho - 1; i++) {
-            if (vetor[i] > vetor[i + 1]) {
-                ordenado = false;
+        estaOrdenado = true;
+        for (indice = 0; indice < tamanhoDoVetor - 1; indice++) {
+            if (vetor[indice] > vetor[indice + 1]) {
+                estaOrdenado = false;
                 break;
             }
         }
 
-        if (ordenado) System.out.println("O vetor está ordenado crescentemente.");
-        else System.out.println("O vetor NÃO está ordenado crescentemente.");
+        if (estaOrdenado) {
+            System.out.println("O vetor está ordenado crescentemente.");
+        } else {
+            System.out.println("O vetor NÃO está ordenado crescentemente.");
+        }
 
-        in.close();
+        scanner.close();
     }
 }

@@ -7,66 +7,73 @@ public class Gabriel11 {
         Como desafio, implemente o algoritmo utilizando a "forma tradicional" e depois utilizando o crivo de Eratóstenes,
         compute os tempos de ambas implementações e verifique a diferença entre os mesmos. */
 
-        int count, num, i, j, maxLimit;
-        long inicioTradicional, fimTradicional, inicioCrivo, fimCrivo;
-        boolean isPrimo;
-        int[] primosTradicional, primosCrivo;
-        boolean[] crivo;
+        int contadorDePrimos, numeroAtual, i, j, limiteMaximo;
+        long inicioTempoTradicional, fimTempoTradicional, inicioTempoCrivo, fimTempoCrivo;
+        boolean ehPrimo;
+        int[] primosMetodoTradicional, primosMetodoCrivo;
+        boolean[] crivoDeEratostenes;
 
-        count = 0;
-        num = 100;
-        maxLimit = 200;
-        primosTradicional = new int[10];
-        primosCrivo = new int[10];
-        crivo = new boolean[maxLimit + 1];
+        contadorDePrimos = 0;
+        numeroAtual = 100;
+        limiteMaximo = 200; // Limite superior para encontrar os primos, pode ser ajustado
+        primosMetodoTradicional = new int[10];
+        primosMetodoCrivo = new int[10];
+        crivoDeEratostenes = new boolean[limiteMaximo + 1];
 
-        inicioTradicional = System.nanoTime();
-        while (count < 10) {
-            isPrimo = true;
-            for (i = 2; i <= Math.sqrt(num); i++) {
-                if (num % i == 0) {
-                    isPrimo = false;
-                    break;
+        // --- Método Tradicional ---
+        inicioTempoTradicional = System.nanoTime();
+        while (contadorDePrimos < 10) {
+            ehPrimo = true;
+            if (numeroAtual <= 1) {
+                ehPrimo = false;
+            } else {
+                for (i = 2; i <= Math.sqrt(numeroAtual); i++) {
+                    if (numeroAtual % i == 0) {
+                        ehPrimo = false;
+                        break;
+                    }
                 }
             }
-            if (isPrimo) {
-                primosTradicional[count] = num;
-                count++;
+            if (ehPrimo) {
+                primosMetodoTradicional[contadorDePrimos] = numeroAtual;
+                contadorDePrimos++;
             }
-            num++;
+            numeroAtual++;
         }
-        fimTradicional = System.nanoTime();
+        fimTempoTradicional = System.nanoTime();
 
-        inicioCrivo = System.nanoTime();
-        for (i = 2; i <= maxLimit; i++) {
-            crivo[i] = true;
+        // --- Crivo de Eratóstenes ---
+        inicioTempoCrivo = System.nanoTime();
+        for (i = 2; i <= limiteMaximo; i++) {
+            crivoDeEratostenes[i] = true;
         }
-        for (i = 2; i * i <= maxLimit; i++) {
-            if (crivo[i]) {
-                for (j = i * i; j <= maxLimit; j += i) {
-                    crivo[j] = false;
+        for (i = 2; i * i <= limiteMaximo; i++) {
+            if (crivoDeEratostenes[i]) {
+                for (j = i * i; j <= limiteMaximo; j += i) {
+                    crivoDeEratostenes[j] = false;
                 }
             }
         }
-        count = 0;
-        for (i = 100; i <= maxLimit && count < 10; i++) {
-            if (crivo[i]) {
-                primosCrivo[count] = i;
-                count++;
+        contadorDePrimos = 0;
+        for (i = 100; i <= limiteMaximo && contadorDePrimos < 10; i++) {
+            if (crivoDeEratostenes[i]) {
+                primosMetodoCrivo[contadorDePrimos] = i;
+                contadorDePrimos++;
             }
         }
-        fimCrivo = System.nanoTime();
+        fimTempoCrivo = System.nanoTime();
 
-        System.out.print("Primos (Tradicional): ");
+        // --- Exibição dos Resultados ---
+        System.out.print("Primos (Método Tradicional): ");
         for (i = 0; i < 10; i++) {
-            System.out.print(primosTradicional[i] + " ");
+            System.out.print(primosMetodoTradicional[i] + " ");
         }
-        System.out.printf("%nTempo Tradicional (ns): %d%n", fimTradicional - inicioTradicional);
+        System.out.printf("%nTempo (Método Tradicional): %d ns%n", fimTempoTradicional - inicioTempoTradicional);
 
-        System.out.print("Primos (Crivo): ");
+        System.out.print("Primos (Crivo de Eratóstenes): ");
         for (i = 0; i < 10; i++) {
-            System.out.print(primosCrivo[i] + " ");
+            System.out.print(primosMetodoCrivo[i] + " ");
         }
-        System.out.printf("%nTempo Crivo (ns): %d%n", fimCrivo - inicioCrivo);
+        System.out.printf("%nTempo (Crivo de Eratóstenes): %d ns%n", fimTempoCrivo - inicioTempoCrivo);
     }
 }
