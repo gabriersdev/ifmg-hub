@@ -10,41 +10,38 @@ public class Gabriel14 {
         Foram coletadas 20 amostras aleatórias da linha de produção, medindo-se a quantidade de produto das mesmas.
         Mostre a média e o desvio padrão entre os elementos das amostras e exiba se o processo deve ou não ser revisado. */
 
-        int indice;
-        double somaDasAmostras, mediaDasAmostras, desvioPadrao, somaDosQuadradosDaDiferenca;
-        final int numeroDeAmostras = 20;
-        double[] amostras;
+        int index;
+        double variance, samplesSum, samplesAverage, standardDeviation, sumOfSquaredDifferences, maxStandardDeviation = 5.0;
+        final int numberOfSamples = 20;
+        double[] samples;
 
-        amostras = new double[numeroDeAmostras];
-        somaDasAmostras = 0.0;
+        samples = new double[numberOfSamples];
+        samplesSum = 0.0;
 
-        System.out.println("Digite as " + numeroDeAmostras + " amostras (em ml):");
-        for (indice = 0; indice < numeroDeAmostras; indice++) {
-            amostras[indice] = scanner.nextDouble();
-            somaDasAmostras += amostras[indice];
+        System.out.println("Digite as " + numberOfSamples + " amostras (em ml):");
+
+        for (index = 0; index < numberOfSamples; index++) {
+            samples[index] = scanner.nextDouble();
+            samplesSum += samples[index];
         }
 
-        mediaDasAmostras = somaDasAmostras / numeroDeAmostras;
+        sumOfSquaredDifferences = 0.0;
+        samplesAverage = samplesSum / numberOfSamples;
 
-        somaDosQuadradosDaDiferenca = 0.0;
-        for (indice = 0; indice < numeroDeAmostras; indice++) {
-            somaDosQuadradosDaDiferenca += Math.pow(amostras[indice] - mediaDasAmostras, 2);
+        for (index = 0; index < numberOfSamples; index++) {
+            sumOfSquaredDifferences += Math.pow(samples[index] - samplesAverage, 2);
         }
-        
+
         // A variância é a média da soma dos quadrados da diferença
-        double variancia = somaDosQuadradosDaDiferenca / numeroDeAmostras;
+        variance = sumOfSquaredDifferences / numberOfSamples;
+        standardDeviation = Math.sqrt(variance);
 
-        desvioPadrao = Math.sqrt(variancia);
+        System.out.printf("Média: %.2f ml%n", samplesAverage);
+        System.out.printf("Desvio Padrão: %.2f ml%n", standardDeviation);
 
-        System.out.printf("Média: %.2f ml%n", mediaDasAmostras);
-        System.out.printf("Desvio Padrão: %.2f ml%n", desvioPadrao);
-
-        final double desvioPadraoMaximo = 5.0;
-        if (desvioPadrao > desvioPadraoMaximo) {
+        if (standardDeviation > maxStandardDeviation)
             System.out.println("Processo de fabricação precisa ser revisado.");
-        } else {
-            System.out.println("Processo de fabricação está dentro dos padrões.");
-        }
+        else System.out.println("Processo de fabricação está dentro dos padrões.");
 
         scanner.close();
     }

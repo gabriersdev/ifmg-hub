@@ -7,31 +7,31 @@ public class Gabriel10 {
         Scanner scanner = new Scanner(System.in);
         /* 10. Faça um programa que carregue dois vetores de dez elementos e mostre um terceiro vetor resultante da intercalação desses dois vetores. */
 
-        int[] primeiroVetor, segundoVetor, vetorIntercalado;
-        int indice;
+        int[] firstVector, secondVector, interleavedVector;
+        int index;
 
-        primeiroVetor = new int[10];
-        segundoVetor = new int[10];
-        vetorIntercalado = new int[20];
+        firstVector = new int[10];
+        secondVector = new int[10];
+        interleavedVector = new int[20];
 
         System.out.println("Digite os 10 elementos do primeiro vetor:");
-        for (indice = 0; indice < 10; indice++) {
-            primeiroVetor[indice] = scanner.nextInt();
+        for (index = 0; index < 10; index++) {
+            firstVector[index] = scanner.nextInt();
         }
 
         System.out.println("Digite os 10 elementos do segundo vetor:");
-        for (indice = 0; indice < 10; indice++) {
-            segundoVetor[indice] = scanner.nextInt();
+        for (index = 0; index < 10; index++) {
+            secondVector[index] = scanner.nextInt();
         }
 
-        for (indice = 0; indice < 10; indice++) {
-            vetorIntercalado[2 * indice] = primeiroVetor[indice];
-            vetorIntercalado[2 * indice + 1] = segundoVetor[indice];
+        for (index = 0; index < 10; index++) {
+            interleavedVector[2 * index] = firstVector[index];
+            interleavedVector[2 * index + 1] = secondVector[index];
         }
 
         System.out.print("Vetor intercalado: ");
-        for (indice = 0; indice < 20; indice++) {
-            System.out.print(vetorIntercalado[indice] + " ");
+        for (index = 0; index < 20; index++) {
+            System.out.print(interleavedVector[index] + " ");
         }
         System.out.println();
 

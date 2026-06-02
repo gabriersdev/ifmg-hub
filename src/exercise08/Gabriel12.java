@@ -7,38 +7,35 @@ public class Gabriel12 {
         Scanner scanner = new Scanner(System.in);
         /* 12. Implemente um algoritmo que verifique se um vetor preenchido pelo usuário está ordenado crescentemente ou não. */
 
-        int indice, tamanhoDoVetor;
-        boolean estaOrdenado;
-        int[] vetor;
+        int index, vectorSize;
+        boolean isSorted;
+        int[] vector;
 
         System.out.print("Informe o tamanho do vetor: ");
-        tamanhoDoVetor = scanner.nextInt();
+        vectorSize = scanner.nextInt();
 
-        if (tamanhoDoVetor <= 0) {
+        if (vectorSize <= 0) {
             System.out.println("Tamanho inválido.");
             scanner.close();
             return;
         }
 
-        vetor = new int[tamanhoDoVetor];
-        System.out.println("Digite os " + tamanhoDoVetor + " elementos do vetor:");
-        for (indice = 0; indice < tamanhoDoVetor; indice++) {
-            vetor[indice] = scanner.nextInt();
+        vector = new int[vectorSize];
+        System.out.println("Digite os " + vectorSize + " elementos do vetor:");
+        for (index = 0; index < vectorSize; index++) {
+            vector[index] = scanner.nextInt();
         }
 
-        estaOrdenado = true;
-        for (indice = 0; indice < tamanhoDoVetor - 1; indice++) {
-            if (vetor[indice] > vetor[indice + 1]) {
-                estaOrdenado = false;
+        isSorted = true;
+        for (index = 0; index < vectorSize - 1; index++) {
+            if (vector[index] > vector[index + 1]) {
+                isSorted = false;
                 break;
             }
         }
 
-        if (estaOrdenado) {
-            System.out.println("O vetor está ordenado crescentemente.");
-        } else {
-            System.out.println("O vetor NÃO está ordenado crescentemente.");
-        }
+        if (isSorted) System.out.println("O vetor está ordenado crescentemente.");
+        else System.out.println("O vetor NÃO está ordenado crescentemente.");
 
         scanner.close();
     }
