@@ -7,6 +7,8 @@ public class Gabriel11 {
         Como desafio, implemente o algoritmo utilizando a "forma tradicional" e depois utilizando o crivo de Eratóstenes,
         compute os tempos de ambas implementações e verifique a diferença entre os mesmos. */
 
+        /* O Crivo de Eratóstenes é um algoritmo e uma forma simples e prática para encontrar números primos até um certo valor limite. Segundo a tradição, foi criado pelo matemático grego Eratóstenes.*/
+
         int primeCounter, currentNumber, i, j, upperLimit;
         long traditionalMethodStartTime, traditionalMethodEndTime, sieveMethodStartTime, sieveMethodEndTime;
         boolean isPrime;
@@ -20,7 +22,7 @@ public class Gabriel11 {
         sieveMethodPrimes = new int[10];
         sieveOfEratosthenes = new boolean[upperLimit + 1];
 
-        // Método Tradicional
+        // Forma tradicional
         traditionalMethodStartTime = System.nanoTime();
         while (primeCounter < 10) {
             isPrime = true;

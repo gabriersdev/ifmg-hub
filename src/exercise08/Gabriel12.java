@@ -23,6 +23,7 @@ public class Gabriel12 {
         vector = new int[vectorSize];
         System.out.println("Digite os " + vectorSize + " elementos do vetor:");
         for (index = 0; index < vectorSize; index++) {
+            System.out.println("Digite o elemento " + (index + 1) + ":");
             vector[index] = scanner.nextInt();
         }
 

@@ -14,7 +14,10 @@ public class Gabriel13 {
         numbers = new int[10];
 
         System.out.println("Digite 10 números:");
-        for (i = 0; i < 10; i++) numbers[i] = scanner.nextInt();
+        for (i = 0; i < 10; i++) {
+            System.out.println("Digite o número " + (i + 1) + ":");
+            numbers[i] = scanner.nextInt();
+        }
 
         for (i = 0; i < 9; i++) {
             for (j = 0; j < 9 - i; j++) {

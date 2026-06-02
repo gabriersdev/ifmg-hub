@@ -12,14 +12,17 @@ public class Gabriel8 {
 
         int[] grades, absoluteFrequency;
         double[] relativeFrequency;
-        int i, grade, totalStudents = 4;
+        int i, grade, totalStudents = 80;
 
         grades = new int[totalStudents];
         absoluteFrequency = new int[11];
         relativeFrequency = new double[11];
 
         System.out.println("Digite as 80 notas (de 0 a 10):");
-        for (i = 0; i < totalStudents; i++) grades[i] = scanner.nextInt();
+        for (i = 0; i < totalStudents; i++) {
+            System.out.println("Digite a nota " + (i + 1) + ": ");
+            grades[i] = scanner.nextInt();
+        }
 
         for (i = 0; i < totalStudents; i++) {
             grade = grades[i];

@@ -21,6 +21,7 @@ public class Gabriel14 {
         System.out.println("Digite as " + numberOfSamples + " amostras (em ml):");
 
         for (index = 0; index < numberOfSamples; index++) {
+            System.out.println("Digite a amostra " + (index + 1) + ":");
             samples[index] = scanner.nextDouble();
             samplesSum += samples[index];
         }
@@ -28,7 +29,10 @@ public class Gabriel14 {
         sumOfSquaredDifferences = 0.0;
         samplesAverage = samplesSum / numberOfSamples;
 
+        // Cálculo do desvio padrão
+        // Itera sobre a quantidade de amostras
         for (index = 0; index < numberOfSamples; index++) {
+            // O cálculo usado é o (valor da amostra X - Média das amostras)²
             sumOfSquaredDifferences += Math.pow(samples[index] - samplesAverage, 2);
         }
 
@@ -39,9 +43,8 @@ public class Gabriel14 {
         System.out.printf("Média: %.2f ml%n", samplesAverage);
         System.out.printf("Desvio Padrão: %.2f ml%n", standardDeviation);
 
-        if (standardDeviation > maxStandardDeviation)
-            System.out.println("Processo de fabricação precisa ser revisado.");
-        else System.out.println("Processo de fabricação está dentro dos padrões.");
+        if (standardDeviation > maxStandardDeviation) System.out.println("O processo de fabricação precisa ser revisado.");
+        else System.out.println("O processo de fabricação está dentro dos padrões.");
 
         scanner.close();
     }
