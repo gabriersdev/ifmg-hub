@@ -8,8 +8,26 @@ public class Gabriel25 {
          */
 
         int quantityPNumbers = 5, quantityPNFound = 0;
+        int number = 1, sum, i;
 
-        // Encontrar os divisores de um número (numero % divisor == 0)
-        //
+        System.out.println("Os 5 primeiros números perfeitos são:");
+
+        while (quantityPNFound < quantityPNumbers) {
+            sum = 0;
+            
+            // Otimização: só precisamos verificar os divisores até a metade do número
+            for (i = 1; i <= number / 2; i++) {
+                if (number % i == 0) {
+                    sum += i;
+                }
+            }
+
+            if (sum == number) {
+                System.out.println(number);
+                quantityPNFound++;
+            }
+            
+            number++;
+        }
     }
 }
