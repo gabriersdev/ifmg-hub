@@ -1,4 +1,4 @@
-package additionalExercises;
+package challenges;
 
 public class GabrielAdditionalExercise00 {
     public static void main(String[] args) {
