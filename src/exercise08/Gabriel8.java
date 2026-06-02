@@ -1,9 +1,15 @@
 package exercise08;
 
-import java.util.Random;
+import java.util.Scanner;
 
 public class Gabriel8 {
     public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        /* 8. Fazer um algoritmo que:
+        a. Leia um conjunto de valores inteiros correspondentes a 80 notas dos alunos de uma turma, notas estas que variam de 0 a 10;
+        b. Calcule a frequência absoluta e a frequência relativa de cada nota;
+        c. Imprima uma tabela contendo os valores das notas (de 0 a 10) e suas respectivas frequências absoluta e relativa. */
+
         int[] notas, frequenciaAbsoluta;
         double[] frequenciaRelativa;
         int i, nota;
@@ -12,26 +18,21 @@ public class Gabriel8 {
         notas = new int[TOTAL_ALUNOS];
         frequenciaAbsoluta = new int[11];
         frequenciaRelativa = new double[11];
-        Random random = new Random();
 
-        // a. Leia um conjunto de valores inteiros correspondentes a 80 notas
-        // Para simular, vamos gerar notas aleatórias de 0 a 10
+        System.out.println("Digite as 80 notas (de 0 a 10):");
         for (i = 0; i < TOTAL_ALUNOS; i++) {
-            notas[i] = random.nextInt(11); // Gera números de 0 a 10
+            notas[i] = in.nextInt();
         }
 
-        // b. Calcule a frequência absoluta
         for (i = 0; i < TOTAL_ALUNOS; i++) {
             nota = notas[i];
             frequenciaAbsoluta[nota]++;
         }
 
-        // b. Calcule a frequência relativa
         for (i = 0; i < frequenciaAbsoluta.length; i++) {
             frequenciaRelativa[i] = (double) frequenciaAbsoluta[i] / TOTAL_ALUNOS;
         }
 
-        // c. Imprima uma tabela
         System.out.println("Tabela de Frequência das Notas");
         System.out.println("-------------------------------------------");
         System.out.printf("%-10s | %-20s | %-15s%n", "Nota", "Frequência Absoluta", "Frequência Relativa");
@@ -40,6 +41,9 @@ public class Gabriel8 {
         for (i = 0; i < 11; i++) {
             System.out.printf("%-10d | %-20d | %-15.2f%%%n", i, frequenciaAbsoluta[i], frequenciaRelativa[i] * 100);
         }
+
         System.out.println("-------------------------------------------");
+
+        in.close();
     }
 }

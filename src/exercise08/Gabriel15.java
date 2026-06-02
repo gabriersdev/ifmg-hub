@@ -4,138 +4,115 @@ import java.util.Scanner;
 
 public class Gabriel15 {
     public static void main(String[] args) {
-        /*
-         * 15. Faça um programa que simule um controle bancário. Para tanto, devem ser lidos os códigos de dez contas e seus respectivos saldos.
-         * Os códigos devem ser armazenados em um vetor de números inteiros (não pode haver mais de uma conta com o mesmo código) e os saldos devem ser armazenados em um vetor de números reais.
-         * O saldo deverá ser cadastrado na mesma posição do código.
-         * Por exemplo, se a conta 504 foi armazenada na quinta posição do vetor de códigos, seu saldo deverá ficar na quinta posição do vetor de saldos.
-         * Depois de fazer uma leitura dos valores, deverá aparecer o seguinte menu na tela:
-         * Menu de Operações
-         * 1. Efetuar depósito
-         * 2. Efetuar saque
-         * 3. Consultar saldo em conta
-         * 4. Finalizar o programa
-         * - Para efetuar o depósito, deve-se solicitar o código da conta e o valor a ser depositado. Se a conta não estiver cadastrada, deverá aparecer a mensagem "Conta não encontrada!" e voltar ao menu. Se a conta existir, atualizar seu saldo;
-         * - Para efetuar saque, deve-se solicitar o código da conta e o valor a ser sacado. Se a conta não estiver cadastrada, deverá aparecer a mensagem "Conta não encontrada!" e voltar ao menu. Se a conta existir, verificar se o seu saldo é suficiente para cobrir o saque. (Suponha que a conta não possa ficar com saldo negativo). Se o saldo for suficiente, realizar o saque e voltar ao menu. Caso contrário, mostrar a mensagem "Saldo insuficiente!" e voltar ao menu.
-         * - Para consultar saldo em conta, deve-se solicitar o código da conta a ser pesquisada. Se a conta não estiver cadastrada, deverá aparecer a mensagem "Conta não encontrada!"; senão, mostrar a conta com seu respectivo saldo e voltar ao menu;
-         * - O programa termina quando for digitada a opção 4 - Finalizar o programa.
-         */
+        Scanner in = new Scanner(System.in);
+        /* 15. Faça um programa que simule um controle bancário. Devem ser lidos os códigos de dez contas e seus respectivos saldos.
+        Os códigos devem ser armazenados em um vetor de inteiros (não pode haver mais de uma conta com o mesmo código) e os saldos em um vetor de reais.
+        O saldo deverá ser cadastrado na mesma posição do código. Depois da leitura, deverá aparecer o menu de operações:
+        1. Efetuar depósito  2. Efetuar saque  3. Consultar saldo em conta  4. Finalizar o programa
+        - Depósito: solicita código e valor; se a conta não existir, mostra "Conta não encontrada!" e volta ao menu; se existir, atualiza o saldo.
+        - Saque: solicita código e valor; conta inexistente mostra "Conta não encontrada!"; se o saldo for suficiente, efetua o saque; senão mostra "Saldo insuficiente!".
+        - Consulta: solicita o código; conta inexistente mostra "Conta não encontrada!"; senão mostra a conta e seu saldo.
+        - O programa termina quando for digitada a opção 4. */
 
-        int i, option, count, codeInput, indexFound;
-        double valueInput;
-        boolean isDuplicate;
-        int[] codes;
-        double[] balances;
-        Scanner scanner;
+        int i, opcao, count, codigo, indice;
+        double valor;
+        boolean duplicado;
+        int[] codigos;
+        double[] saldos;
 
-        scanner = new Scanner(System.in);
-        codes = new int[10];
-        balances = new double[10];
+        codigos = new int[10];
+        saldos = new double[10];
         count = 0;
 
-        System.out.println("Cadastro de 10 contas bancarias");
-
+        System.out.println("Cadastro de 10 contas bancárias");
         while (count < 10) {
-            System.out.print("Digite o codigo da conta " + (count + 1) + ": ");
-            codeInput = scanner.nextInt();
+            System.out.print("Digite o código da conta " + (count + 1) + ": ");
+            codigo = in.nextInt();
 
-            isDuplicate = false;
-
+            duplicado = false;
             for (i = 0; i < count; i++) {
-                if (codes[i] == codeInput) {
-                    isDuplicate = true;
+                if (codigos[i] == codigo) {
+                    duplicado = true;
                     break;
                 }
             }
 
-            if (isDuplicate) System.out.println("Codigo ja cadastrado! Tente outro.");
-
-            else {
-                codes[count] = codeInput;
-                System.out.print("Digite o saldo da conta " + (count + 1) + ": ");
-                balances[count] = scanner.nextDouble();
-                count++;
+            if (duplicado) {
+                System.out.println("Código já cadastrado! Tente outro.");
+                continue;
             }
+
+            codigos[count] = codigo;
+            System.out.print("Digite o saldo da conta " + (count + 1) + ": ");
+            saldos[count] = in.nextDouble();
+            count++;
         }
 
-        option = 0;
-
-        while (option != 4) {
-            System.out.println("\nMenu de Operacoes");
-            System.out.println("1. Efetuar deposito");
+        opcao = 0;
+        while (opcao != 4) {
+            System.out.println("\nMenu de Operações");
+            System.out.println("1. Efetuar depósito");
             System.out.println("2. Efetuar saque");
             System.out.println("3. Consultar saldo em conta");
             System.out.println("4. Finalizar o programa");
-            System.out.print("Escolha uma opcao: ");
-            option = scanner.nextInt();
+            System.out.print("Escolha uma opção: ");
+            opcao = in.nextInt();
 
-            if (option == 1) {
-                System.out.print("Digite o codigo da conta para deposito: ");
-                codeInput = scanner.nextInt();
-                indexFound = -1;
-
+            if (opcao == 1) {
+                System.out.print("Digite o código da conta para depósito: ");
+                codigo = in.nextInt();
+                indice = -1;
                 for (i = 0; i < 10; i++) {
-                    if (codes[i] == codeInput) {
-                        indexFound = i;
+                    if (codigos[i] == codigo) {
+                        indice = i;
                         break;
                     }
                 }
 
-                if (indexFound == -1) System.out.println("Conta nao encontrada!");
+                if (indice == -1) System.out.println("Conta não encontrada!");
                 else {
-                    System.out.print("Digite o valor do deposito: ");
-                    valueInput = scanner.nextDouble();
-                    balances[indexFound] += valueInput;
-                    System.out.println("Deposito efetuado com sucesso!");
+                    System.out.print("Digite o valor do depósito: ");
+                    valor = in.nextDouble();
+                    saldos[indice] += valor;
+                    System.out.println("Depósito efetuado com sucesso!");
                 }
-            }
-
-            //
-            else if (option == 2) {
-                System.out.print("Digite o codigo da conta para saque: ");
-                codeInput = scanner.nextInt();
-                indexFound = -1;
-
+            } else if (opcao == 2) {
+                System.out.print("Digite o código da conta para saque: ");
+                codigo = in.nextInt();
+                indice = -1;
                 for (i = 0; i < 10; i++) {
-                    if (codes[i] == codeInput) {
-                        indexFound = i;
+                    if (codigos[i] == codigo) {
+                        indice = i;
                         break;
                     }
                 }
 
-                if (indexFound == -1) System.out.println("Conta nao encontrada!");
+                if (indice == -1) System.out.println("Conta não encontrada!");
                 else {
                     System.out.print("Digite o valor do saque: ");
-                    valueInput = scanner.nextDouble();
-                    if (balances[indexFound] >= valueInput) {
-                        balances[indexFound] -= valueInput;
+                    valor = in.nextDouble();
+                    if (saldos[indice] >= valor) {
+                        saldos[indice] -= valor;
                         System.out.println("Saque efetuado com sucesso!");
-                    } else {
-                        System.out.println("Saldo insuficiente!");
-                    }
+                    } else System.out.println("Saldo insuficiente!");
                 }
-
-            } else if (option == 3) {
-                System.out.print("Digite o codigo da conta para consulta: ");
-                codeInput = scanner.nextInt();
-                indexFound = -1;
-
+            } else if (opcao == 3) {
+                System.out.print("Digite o código da conta para consulta: ");
+                codigo = in.nextInt();
+                indice = -1;
                 for (i = 0; i < 10; i++) {
-                    if (codes[i] == codeInput) {
-                        indexFound = i;
+                    if (codigos[i] == codigo) {
+                        indice = i;
                         break;
                     }
                 }
 
-                if (indexFound == -1) System.out.println("Conta nao encontrada!");
-                else System.out.printf("Conta: %d | Saldo: %.2f\n", codes[indexFound], balances[indexFound]);
-            }
-
-            //
-            else if (option == 4) System.out.println("Programa finalizado.");
-            else System.out.println("Opcao invalida!");
+                if (indice == -1) System.out.println("Conta não encontrada!");
+                else System.out.printf("Conta: %d | Saldo: %.2f%n", codigos[indice], saldos[indice]);
+            } else if (opcao == 4) System.out.println("Programa finalizado.");
+            else System.out.println("Opção inválida!");
         }
 
-        scanner.close();
+        in.close();
     }
 }
