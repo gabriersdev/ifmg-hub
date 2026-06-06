@@ -1,4 +1,4 @@
-package testing;
+package learning;
 
 public class RememberFunctions {
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package testing;
+package learning;
 
 public class ConvertIntToBin {
     private static final Integer NUMBER = 6;

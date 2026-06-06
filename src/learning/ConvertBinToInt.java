@@ -1,4 +1,4 @@
-package testing;
+package learning;
 
 public class ConvertBinToInt {
     private static final String BINARY = "101";

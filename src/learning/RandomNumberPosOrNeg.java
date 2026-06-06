@@ -1,4 +1,4 @@
-package testing;
+package learning;
 
 import java.util.Random;
 

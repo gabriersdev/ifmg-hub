@@ -1,4 +1,4 @@
-package testing;
+package learning;
 
 public class UsingStaticAttributes {
     private static final String WCM = "Gabriel";
