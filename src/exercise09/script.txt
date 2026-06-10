@@ -1,0 +1,65 @@
+Lista de Exercícios - Manipulação de Strings em Java
+Questão 1 - Sistema de Cadastro de Usuário
+Uma empresa está desenvolvendo um sistema de cadastro para novos funcionários.
+
+Solicite ao usuário:
+- Nome completo;
+- E-mail;
+- Senha.
+
+Parte 1 - Nome:
+- Exiba o nome em letras maiúsculas;
+- Exiba o nome em letras minúsculas;
+- Exiba a quantidade total de caracteres.
+
+Parte 2 - E-mail:
+- Verifique se o e-mail contém o caractere '@'.
+- Exiba 'E-mail válido' ou 'E-mail inválido'.
+
+Parte 3 - Login:
+- Considere que o usuário informou apenas nome e sobrenome.
+- Tal como o gmail faz, gere um login no formato nome.sobrenome em letras minúsculas a partir do nome digitado.
+
+Parte 4 - Senha:
+- Verifique se a senha possui pelo menos 8 caracteres.
+- Verifique se possui pelo menos um número. -Verifique se a senha possui pelo menos um caractere especial.
+- Exiba 'Senha forte', se todas as condições forem satisfeitas; ‘Senha média’, se pelo menos 2 das condições forem satisfeitas; ou 'Senha fraca' caso contrário.
+
+Questão 2 - Contagem de Vogais
+Desenvolva um programa que receba uma frase digitada pelo usuário e informe quantas vogais ela possui.
+Considere as vogais a, e, i, o e u, tratando letras maiúsculas e minúsculas da mesma forma.
+Questão 3 - O Sapo Não Lava o Pé: Versão das Vogais
+Armazene a letra da música 'O Sapo Não Lava o Pé' em uma String.
+
+Leia uma vogal (a, e, i, o ou u).
+
+Substitua todas as vogais da música pela vogal informada utilizando o método replace().
+
+Exiba a nova versão da música.
+
+Questão 4 - Palíndromo
+Leia uma palavra e verifique se ela é um palíndromo.
+
+Uma palavra é considerada palíndromo quando pode ser lida da mesma forma da esquerda para a direita e da direita para a esquerda.
+
+Exemplos:
+- arara
+- ovo
+- radar
+
+Exiba:
+'Palíndromo' ou 'Não é palíndromo'.
+
+Questão 5 - Questão 5 - Sistema de Moderação de Comentários
+Uma rede social deseja ocultar palavras inadequadas publicadas pelos usuários.
+Faça um programa que:
+1.	Leia um comentário digitado pelo usuário.
+2.	Leia uma lista de 5 palavras que devem ser censuradas.
+3.	Substitua todas as ocorrências dessa palavra por "***".
+4.	Exiba o comentário censurado.
+Exemplo de Entrada
+Eu gosto muito de Java e Java é incrível.
+Java
+Exemplo de Saída
+Eu gosto muito de *** e *** é incrível.
+
