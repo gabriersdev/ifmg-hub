@@ -8,6 +8,8 @@ public class Gabriel23 {
         // novela varA, canal varB, novela varB, canal varC novela varC. Numa pesquisa com 3000 pessoas, perguntou-se quais
         // novela agradavam. varA tabela a seguir mostra o resultado da pesquisa:
 
+        // [Tabela]
+
         // Implemente um algoritmo que encontre o número de telespectadores que nenhuma das novelas os agradam.
         // Receba as informações de preferências na entrada de dados e utilize as fórmulas de teoria dos conjuntos.
 

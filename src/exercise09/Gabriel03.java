@@ -20,11 +20,10 @@ public class Gabriel03 {
         vowelSelected = keyboard.next();
 
         if (vowels.contains(vowelSelected.toUpperCase())) {
-            newMusic = music.replaceAll("(?i)" + vowels.trim().toLowerCase(), vowelSelected);
+            newMusic = music.replaceAll("(?i)" + "[" + vowels.trim().toLowerCase() + "]", vowelSelected);
 
             System.out.println("A nova música:");
             System.out.println(newMusic);
-
         } else {
             // O que foi digitado não é uma vogal
             System.out.println("O que foi digitado não é um vogal. Digite uma vogal (A | E | I | O | U).");
