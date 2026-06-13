@@ -17,35 +17,39 @@ public class Gabriel04 {
         // Exiba:
         // 'Palíndromo' ou 'Não é palíndromo'.
 
-        String word = "";
+        String word, lowerWord;
         boolean reverseIsEqual = true;
         Scanner keyboard = new Scanner(System.in);
 
         System.out.println("Digite uma palavra");
-        word = keyboard.next().trim();
+        word = keyboard.nextLine().trim();
 
         // Se conter espaço, não é uma palavra
         if (word.contains(" ")) {
+            System.out.println("A palavra não pode conter espaços");
+        }
 
-        } else {
-            String[] wordSplitted = word.split("");
-            String[] reverseWordSplitted = new String[wordSplitted.length];
-            int i = wordSplitted.length - 1;
+        // Verifica as strings
+        else {
+            lowerWord = word.toLowerCase();
+            String[] wordSplit = lowerWord.split("");
+            String[] wordSplitReverse = new String[wordSplit.length];
 
-            // Colocando a palavra ao contrário
-            for (String letter : wordSplitted) {
-                reverseWordSplitted[i] = letter;
-                i--;
+            // Preenche wordSplitReverse
+            for (int i = 0; i < wordSplit.length; i++) {
+                // Se i = 3 e wordSplit.length = 3, busca a string em wordSplit na posição 0, porquê 3 - 1 - 2 => 0
+                wordSplitReverse[i] = wordSplit[wordSplit.length - 1 - i];
             }
 
-            for (int a = 0, b = wordSplitted.length - 1; a < wordSplitted.length - 1; a++, b--) {
-                if (!wordSplitted[a].equalsIgnoreCase(reverseWordSplitted[b])) {
+            // Compara os dois vetores comparando cada posição
+            for (int i = 0; i < wordSplit.length; i++) {
+                if (!wordSplit[i].equals(wordSplitReverse[i])) {
                     reverseIsEqual = false;
                     break;
                 }
             }
 
-            System.out.println(reverseIsEqual);
+            System.out.println(reverseIsEqual ? "Palíndromo" : "A palavra \"" + word + "\" não é palíndromo.");
         }
     }
 }
