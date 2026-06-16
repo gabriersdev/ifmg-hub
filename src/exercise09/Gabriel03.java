@@ -27,7 +27,7 @@ public class Gabriel03 {
             System.out.printf(newMusic);
         } else {
             // O que foi digitado não é uma vogal
-            System.out.println("O que foi digitado não é um vogal. Digite uma vogal (A | E | I | O | U).");
+            System.out.println("O que foi digitado não é um vogal. Digite uma vogal (A | E | I | O | U) e execute o script novamente.");
         }
     }
 }
