@@ -10,3 +10,4 @@
 - Evitar usar tipos "sofisticados" de dados como StringBuilder. Dar preferencia por tipos primitivos e,
   quando houver necessidade de iteração, usar estruturas de repetição ALIADAS a estruturas de ARRAY básicas: vetores de tipos primitivos ou string.
 - Os nomes das variáveis e funções deve ser em inglês.
+- Usar métodos estáticos de suporte sempre que forem necessários para evitar repetição excessiva de código. 
