@@ -7,7 +7,7 @@ public class Gabriel02 {
     public static void main(String[] args) {
         // 2. Faça um programa que preencha uma matriz 3 x 5 com números reais. Some os valores de cada linha e armazene em um vetor. A seguir, mostre qual a linha que tem maior valor somado.
 
-        int countLines = 3, highValueAccLineNumber = 0;
+        int countLines = 3, highValueAccLineNumber = -1;
         double accLineValue = 0, highValueAcc = Double.MIN_VALUE;
         double[][] matrix = new double[countLines][5];
         double[] vector = new double[countLines];

@@ -4,10 +4,21 @@ import java.util.Arrays;
 
 public class Matriz {
     public static void main(String[] args) {
-        int[] abc = {0, -100, 50, 1, 2, 4};
+        int[][] m = new int[4][4];
+        int[] a = new int[2];
 
-        Arrays.sort(abc);
+        m[3][3] = 3;
 
-        System.out.println(Arrays.toString(abc));
+//        System.out.println(m[3][3]);
+
+//        System.out.println(Arrays.toString(m));
+//        System.out.println(a);
+
+//        [
+//          [],
+//          [],
+//          [],
+//          [],
+//        ]
     }
 }

@@ -1,5 +1,8 @@
 package exercise10;
 
+import java.util.Arrays;
+import java.util.Scanner;
+
 public class Gabriel09 {
     public static void main(String[] args) {
         // 9. Os elementos a_ij de uma matriz A_nxn representam os custos de transporte da cidade i para a cidade j. O caminhão de uma empresa de logística deve passar exatamente uma vez por cada uma da n cidades. Sabendo que, uma rota é representada por um vetor de n posições, em que cada posição representa a cidade visitada, você deve implementar um algoritmo que calcule o custo da rota de um caminhão da empresa. Note que, a rota e a matriz de custo devem ser fornecidas pelo usuário.
@@ -10,5 +13,17 @@ public class Gabriel09 {
         // 12 14 0 20
         // 20 19 35 0
         // TODO - fazer
+
+        int countCities = 4;
+        double[][] matrix = new double[countCities][countCities];
+        double[] vector = new double[countCities];
+
+        System.out.println("Informe o custo de rota: ");
+        for (int i = 0; i < vector.length; i++) {
+
+            System.out.println("Qual o valor?");
+        }
+
+        System.out.println(Arrays.deepToString(matrix).replace("],", "],\n"));
     }
 }
