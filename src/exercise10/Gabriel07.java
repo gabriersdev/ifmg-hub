@@ -1,6 +1,5 @@
 package exercise10;
 
-import java.util.Random;
 import java.util.Scanner;
 
 public class Gabriel07 {
@@ -12,10 +11,9 @@ public class Gabriel07 {
         // 0 1 0 0
         // 0 0 1 0
 
-        int n;
-        boolean isPermutation = true, existsSome1InCurrentLine = false, existsSome1InCurrentColumn = false, exists1InColumn = false, exists1InLine = false;
+        int n, count1Col, count1Row;
+        boolean isPermutation = true;
         Scanner scanner = new Scanner(System.in);
-        Random random = new Random();
 
         System.out.println("Informe um número inteiro como dimensão para a matriz: ");
         n = scanner.nextInt();
@@ -35,16 +33,25 @@ public class Gabriel07 {
             }
         }
 
-        // Verifica se é de permutação
-        // TODO - verificar a lógica. Parece muito equivocada
         for (int i = 0; i < n; i++) {
+            count1Row = 0;
+            count1Col = 0;
+
             for (int j = 0; j < n; j++) {
-                if (!existsSome1InCurrentColumn && matrix[i][j] == 1) existsSome1InCurrentColumn = true;
-                else if (existsSome1InCurrentColumn && matrix[i][j] == 1) {
-                    isPermutation = false;
-                    break;
-                }
+                if (matrix[i][j] == 1) count1Row++;
+                else if (matrix[i][j] != 0) isPermutation = false;
+
+                if (matrix[j][i] == 1) count1Col++;
+                else if (matrix[j][i] != 0) isPermutation = false;
+            }
+
+            if (count1Row != 1 || count1Col != 1) {
+                isPermutation = false;
+                break;
             }
         }
+
+        if (isPermutation) System.out.println("A matriz é de permutação.");
+        else System.out.println("A matriz não é de permutação.");
     }
 }

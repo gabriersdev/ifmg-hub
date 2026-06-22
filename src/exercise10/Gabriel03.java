@@ -5,7 +5,6 @@ import java.util.Scanner;
 
 public class Gabriel03 {
     public static void main(String[] args) {
-        // TODO - fazer
         // 3. A produção diária de uma fábrica é armazenada, semana a semana, em uma tabela com o seguinte formato.
         // 
         //           Dia1  Dia2  Dia3  Dia4  Dia5  Dia6  Dia7
@@ -27,10 +26,11 @@ public class Gabriel03 {
         // DIA x
         // DIA x
 
-        int countWeeks = 0, countDaysProductionAccAVG = 0, days = 7;
+        int countWeeks = 0, countDaysProductionAccAVG = 0, days = 7, minProduction = 0, i, j;
+        double productionAVG = 0, productionAcc = 0;
+        int[][] matrix;
         Scanner scanner = new Scanner(System.in);
         Random random = new Random();
-        double productionAVG, productionAcc = 0;
 
         System.out.println("Informe a quantidade de semanas: ");
         countWeeks = scanner.nextInt();
@@ -40,31 +40,40 @@ public class Gabriel03 {
             return;
         }
 
-        int[][] matrix = new int[countWeeks][days];
+        matrix = new int[countWeeks][days];
 
         // Preenche os dados
-        for (int i = 0; i < countWeeks; i++) for (int j = 0; j < days; j++) matrix[i][j] = random.nextInt(1, 100);
+        for (i = 0; i < countWeeks; i++) for (j = 0; j < days; j++) matrix[i][j] = random.nextInt(1, 100);
 
         // Obtém a média de produção
-        for (int i = 0; i < countWeeks; i++) for (int j = 0; j < days; j++) productionAcc += matrix[i][j];
+        for (i = 0; i < countWeeks; i++) for (j = 0; j < days; j++) productionAcc += matrix[i][j];
         productionAVG = productionAcc / (countWeeks * days);
 
         System.out.println("Relatório de produção relativo às " + countWeeks + " semanas: ");
         System.out.println("Produção média = " + productionAVG);
 
         // Verifica quantidade de dias acima da média
-        for (int i = 0; i < countWeeks; i++)
-            for (int j = 0; j < days; j++) if (matrix[i][j] > productionAVG) countDaysProductionAccAVG++;
+        for (i = 0; i < countWeeks; i++)
+            for (j = 0; j < days; j++) if (matrix[i][j] > productionAVG) countDaysProductionAccAVG++;
 
         System.out.println("Número de dias com produção acima da média = " + countDaysProductionAccAVG);
 
         // Produção mínima
-        System.out.println("Indicação dos dias de produção mínima (abaixo da média): ");
-//        TODO - verificar: está puxando dias que a produção foi maior que a média, mesmo o if pedindo explicitamente o contrário
-        for (int i = 0; i < countWeeks; i++)
-            for (int j = 0; j < days; j++)
-                if (matrix[i][j] < productionAVG)
-                    System.out.println("Semana " + (j + 1) + " - dia " + (i + 1) + " = " + matrix[i][j]);
-        ;
+        System.out.println("Dias com produção mínima: ");
+        for (i = 0; i < countWeeks; i++) {
+            System.out.println("Semana " + (i + 1));
+
+            // A produção mínima é inicializada com o primeiro valor da linha e depois alterada para o valor corrente, se o valor corrente FOR MENOR que o primeiro valor da linha
+            minProduction = matrix[i][0];
+
+            for (j = 1; j < days; j++)
+                if (matrix[i][j] < minProduction) minProduction = matrix[i][j];
+
+            // Verifica se a produção do valor corrente da iteraçxão é igual ao minProduction
+            for (j = 0; j < days; j++)
+                if (matrix[i][j] == minProduction) System.out.println("DIA " + (j + 1));
+        }
+
+        scanner.close();
     }
 }

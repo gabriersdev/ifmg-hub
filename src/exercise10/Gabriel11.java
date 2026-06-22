@@ -11,23 +11,21 @@ public class Gabriel11 {
         // c) Qual armazém possui menor estoque;
         // d) Qual armazém possui maior custo de estocagem.
 
-        int l = 5, c = 4;
-        double accCurrentProductQuantity = 0;
+        int l = 5, c = 3, minStockWarehouse = -1, maxProduct2Warehouse = -1, maxCostWarehouse = -1, i, j;
+        double accCurrentProductQuantity = 0, currentWarehouseCost = 0, minStock = Double.MAX_VALUE, maxProduct2Stock = Double.MIN_VALUE, maxCost = Double.MIN_VALUE;
         double[][] matrix = new double[l][c];
         Scanner input = new Scanner(System.in);
 
         // Insere
-        for (int i = 0; i < l; i++) {
-            for (int j = 0; j < c; j++) {
+        for (i = 0; i < l; i++) {
+            for (j = 0; j < c; j++) {
                 // Caso da última linha
-                if (i == c - 1) {
-                    System.out.println("Informe o custo de estocagem do produto " + (i + 1) + " no armazem " + (j + 1) + ": ");
+                if (i == l - 1) {
+                    System.out.println("Informe o custo de estocagem do produto " + (j + 1) + ": ");
                     matrix[i][j] = input.nextDouble();
                     input.nextLine();
-                }
-
-                else {
-                    System.out.println("Informe o estoque atual do produto " + (i + 1) + " no armazem " + (j + 1) + ": ");
+                } else {
+                    System.out.println("Informe o estoque atual do produto " + (j + 1) + " no armazem " + (i + 1) + ": ");
                     matrix[i][j] = input.nextInt();
                     input.nextLine();
                 }
@@ -35,15 +33,38 @@ public class Gabriel11 {
         }
 
         // Verifica a quantidade de itens armazenados em cada armazém
-        for (int i = 0; i < l; i++) {
+        for (i = 0; i < l - 1; i++) {
             accCurrentProductQuantity = 0;
-            // c - 1 pois a última linha é de custo de armazenamento
-            // TODO - está errado!
-            for (int j = 0; j < (c - 1); j++) accCurrentProductQuantity += matrix[j][i];
+            currentWarehouseCost = 0;
+
+            for (j = 0; j < c; j++) {
+                accCurrentProductQuantity += matrix[i][j];
+                currentWarehouseCost += matrix[i][j] * matrix[l - 1][j];
+            }
+
             System.out.println("A quantidade de produtos do armazém " + (i + 1) + " é " + accCurrentProductQuantity);
+
+            if (accCurrentProductQuantity < minStock) {
+                minStock = accCurrentProductQuantity;
+                minStockWarehouse = i + 1;
+            }
+
+            if (matrix[i][1] > maxProduct2Stock) {
+                maxProduct2Stock = matrix[i][1];
+                maxProduct2Warehouse = i + 1;
+            }
+
+            if (currentWarehouseCost > maxCost) {
+                maxCost = currentWarehouseCost;
+                maxCostWarehouse = i + 1;
+            }
         }
 
-        System.out.println("Dados brutos da matriz:");
+        System.out.println("Armazém com maior estoque do produto 2: " + maxProduct2Warehouse);
+        System.out.println("Armazém com menor estoque total: " + minStockWarehouse);
+        System.out.println("Armazém com maior custo de estocagem: " + maxCostWarehouse);
+
+        System.out.println("\nDados brutos da matriz:");
         System.out.println(Arrays.deepToString(matrix).replace("], ", "],\n"));
         input.close();
     }
