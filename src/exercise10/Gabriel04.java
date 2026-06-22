@@ -1,5 +1,6 @@
 package exercise10;
 
+import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -23,7 +24,7 @@ public class Gabriel04 {
         Scanner scanner = new Scanner(System.in);
 
         for (int i = 0; i < countLines; i++) {
-            for (int j = 0; j < countColumns; j++) originalMatrix[i][j] = random.nextDouble(10);
+            for (int j = 0; j < countColumns; j++) originalMatrix[i][j] = random.nextDouble(3, 10 + 1);
             System.out.printf("%nInforme o nome do aluno #%d: ", i + 1);
             studentsNames[i] = scanner.next();
         }
@@ -33,7 +34,7 @@ public class Gabriel04 {
             sumCurrentStudent = 0;
 
             for (int j = 0; j < countColumns; j++) sumCurrentStudent += originalMatrix[i][j];
-            avgCurrentStudent = sumCurrentStudent / countLines;
+            avgCurrentStudent = sumCurrentStudent / countColumns;
 
             avgStudentsNotes[i] = avgCurrentStudent;
         }
@@ -49,5 +50,9 @@ public class Gabriel04 {
                 System.out.printf("%n%s | %.2f | %s", studentsNames[i], avgCurrentStudent, "EM EXAME");
             else System.out.printf("%n%s | %.2f | %s", studentsNames[i], avgCurrentStudent, "REPROVADO");
         }
+
+        System.out.println();
+        System.out.println("Matriz preenchida:");
+        System.out.println(Arrays.deepToString(originalMatrix).replace("], ", "],\n"));
     }
 }

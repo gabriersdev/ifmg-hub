@@ -4,8 +4,6 @@ import java.util.Scanner;
 
 public class Gabriel14 {
     public static void main(String[] args) {
-        // TODO - testar e revisar
-
         // 14. Uma floricultura conhecedora de sua clientela gostaria de fazer um algoritmo que pudesse controlar sempre um estoque mínimo de determinadas plantas, pois todos os dias, pela manhã, o dono faz novas aquisições. Crie um algoritmo que possua as seguintes opções:
         // 
         // FLORICULTURA MARIASFLOR
@@ -23,7 +21,7 @@ public class Gabriel14 {
         String[] names = new String[maxPlants];
 
         while (option != 5) {
-            System.out.println("\nFLORICULTURA MARIASFLOR");
+            System.out.println("\nFLORICULTURA");
             System.out.println("1. CADASTRAR NOVA PLANTA");
             System.out.println("2. RETIRAR PLANTA");
             System.out.println("3. INSERIR PLANTA");
@@ -34,9 +32,9 @@ public class Gabriel14 {
             option = scanner.nextInt();
 
             if (option == 1) {
-                if (plantCount >= maxPlants) {
-                    System.out.println("Limite de plantas atingido.");
-                } else {
+                if (plantCount >= maxPlants) System.out.println("Limite de plantas (" + maxPlants + ") atingido.");
+
+                else {
                     System.out.print("Código (inteiro): ");
                     codes[plantCount] = scanner.nextInt();
                     scanner.nextLine();
@@ -52,38 +50,48 @@ public class Gabriel14 {
 
                     plantCount++;
                 }
-            } else if (option == 2) {
+            }
+
+            //
+            else if (option == 2) {
                 System.out.print("Código da planta: ");
                 code = scanner.nextInt();
                 index = getIndex(codes, plantCount, code);
 
-                if (index == -1) {
-                    System.out.println("Planta não encontrada.");
-                } else {
+                if (index == -1) System.out.println("Planta não encontrada.");
+
+                else {
                     System.out.print("Quantidade a retirar: ");
                     amount = scanner.nextInt();
-                    if (amount > currentStocks[index]) {
-                        System.out.println("Estoque insuficiente.");
-                    } else {
+
+                    if (amount > currentStocks[index]) System.out.println("Estoque insuficiente para a operação.");
+
+                    else {
                         currentStocks[index] -= amount;
-                        System.out.println("Retirada com sucesso.");
+                        System.out.println("Planta retirada com sucesso.");
                     }
                 }
-            } else if (option == 3) {
+            }
+
+            //
+            else if (option == 3) {
                 System.out.print("Código da planta: ");
                 code = scanner.nextInt();
                 index = getIndex(codes, plantCount, code);
 
-                if (index == -1) {
-                    System.out.println("Planta não encontrada.");
-                } else {
+                if (index == -1) System.out.println("Planta não encontrada.");
+                else {
                     System.out.print("Quantidade comprada: ");
                     amount = scanner.nextInt();
                     currentStocks[index] += amount;
                     System.out.println("Estoque atualizado.");
                 }
-            } else if (option == 4) {
-                System.out.println("RELATÓRIO DE COMPRAS");
+            }
+
+            //
+            else if (option == 4) {
+                System.out.println();
+                System.out.println("Relatório de plantas: ");
                 for (i = 0; i < plantCount; i++) {
                     if (currentStocks[i] < idealStocks[i]) {
                         amountToBuy = idealStocks[i] - currentStocks[i];
@@ -92,14 +100,13 @@ public class Gabriel14 {
                 }
             }
         }
+
         scanner.close();
     }
 
     private static int getIndex(int[] array, int size, int target) {
         int i;
-        for (i = 0; i < size; i++) {
-            if (array[i] == target) return i;
-        }
+        for (i = 0; i < size; i++) if (array[i] == target) return i;
         return -1;
     }
 }

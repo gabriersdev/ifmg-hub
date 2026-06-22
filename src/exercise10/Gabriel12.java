@@ -12,9 +12,8 @@ public class Gabriel12 {
         int linesNum, colsNum;
         Scanner input = new Scanner(System.in);
 
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 4; j++) matrixA[i][j] = random.nextInt(100);
-        }
+        // Randomiza e preenche a matriz
+        for (int i = 0; i < 3; i++) for (int j = 0; j < 4; j++) matrixA[i][j] = random.nextInt(100);
 
         System.out.println("Digite a quantidade de linhas que a matriz terá: ");
         linesNum = input.nextInt();
@@ -31,11 +30,23 @@ public class Gabriel12 {
         }
 
         int[][] matrixInf = new int[linesNum][colsNum];
+        for (int i = 0; i < linesNum; i++) for (int j = 0; j < colsNum; j++) matrixInf[i][j] = random.nextInt(100);
 
-        for (int i = 0; i < linesNum; i++) {
-            for (int j = 0; j < colsNum; j++) matrixInf[i][j] = random.nextInt(100);
+        if (linesNum == 4) {
+            int[][] resultMatrix = new int[3][colsNum];
+            System.out.println("Resultado (A x B):");
+            for (int i = 0; i < 3; i++) {
+                for (int j = 0; j < colsNum; j++) {
+                    resultMatrix[i][j] = 0;
+                    for (int k = 0; k < 4; k++) resultMatrix[i][j] += matrixA[i][k] * matrixInf[k][j];
+                    System.out.print(resultMatrix[i][j] + " ");
+                }
+                System.out.println();
+            }
         }
 
-        // TODO - quando é que a operação de multiplicar matrizes pode ser aplicada ?
+        // #
+        else
+            System.out.println("O número de colunas da matriz A (4) é diferente do número de linhas da matriz B (" + linesNum + "). Não é possível multiplicar.");
     }
 }

@@ -52,7 +52,7 @@ public class Gabriel13 {
 
                         if (lineSelected < 0 || lineSelected >= l) {
                             System.out.println("Não é possível trabalhar com valores negativos ou fora do range.");
-                            return;
+                            continue;
                         }
 
                         System.out.println("Informe qual a coluna da poltrona você deseja ocupar (0 para a da janela | 1 para a do corredor): ");
@@ -60,7 +60,7 @@ public class Gabriel13 {
 
                         if (colSelected < 0 || colSelected >= c) {
                             System.out.println("Não é possível trabalhar com valores negativos ou fora do range.");
-                            return;
+                            continue;
                         }
 
                         if (matrix[lineSelected][colSelected] == 0) {
@@ -94,5 +94,4 @@ public class Gabriel13 {
         }
     }
 
-    // TODO - testar funcionamento
 }

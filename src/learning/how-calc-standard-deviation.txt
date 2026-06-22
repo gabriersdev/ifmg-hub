@@ -1,0 +1,48 @@
+# Entendendo o Desvio Padrão (De Forma Didática)
+
+O Desvio Padrão é uma métrica estatística que responde a uma pergunta muito simples: "Em média, o quanto os meus dados estão 'fugindo' ou variando em relação ao valor central (a média)?"
+
+Vamos entender a fórmula passo a passo:
+
+## 1. Descobrir o Centro (A Média)
+
+A primeira coisa é saber qual é o centro dos nossos dados. Por exemplo, se temos latas de 385, 390 e 395 ml, somamos tudo e dividimos pela quantidade (3). A média será 390 ml.
+
+
+## 2. Descobrir a "Fuga" (A Diferença)
+
+Agora, pegamos cada amostra e subtraímos a média dela para ver o quão longe cada lata está do centro.
+
+Lata 1 (385 ml): 385 - 390 = -5
+Lata 2 (390 ml): 390 - 390 = 0
+Lata 3 (395 ml): 395 - 390 = +5
+
+
+## 3. O Truque Matemático (Elevar ao Quadrado)
+
+Se nós simplesmente somarmos as "fugas" (-5 + 0 + 5), o resultado dará 0.
+As variações negativas anulariam as positivas! Para evitar isso, nós elevamos todas as diferenças ao quadrado.
+Isso faz com que todos os números fiquem positivos (e dá mais peso para latas que fugiram muito da média).
+
+-5² = 25
+0² = 0
+5² = 25
+
+
+## 4. A Variância (A Média dos Quadrados)
+
+Somamos esses resultados ao quadrado e dividimos pela quantidade de latas para tirar uma "média das fugas ao quadrado".
+
+(25 + 0 + 25) / 3 latas = 16.66
+Esse valor é chamado de Variância. Mas há um problema: a unidade de medida agora está ao quadrado (estamos falando de mililitros quadrados).
+
+
+## 5. O Desvio Padrão (A Raiz Quadrada)
+
+Para voltar a medida ao normal (para mililitros normais), nós tiramos a raiz quadrada da Variância.
+
+Raiz quadrada de 16.66 = ~4.08 ml
+
+Conclusão: O desvio padrão dessa linha fictícia seria de aproximadamente 4.08 ml. Como o gerente aceita um desvio de até 5 ml, essa linha estaria OK e não precisaria ser revisada.
+
+É exatamente esse fluxo matemático (Diferença -> Quadrado -> Média -> Raiz) que foi aplicado na correção do laço for do seu sistema! Ficou alguma dúvida sobre o comportamento do algoritmo?

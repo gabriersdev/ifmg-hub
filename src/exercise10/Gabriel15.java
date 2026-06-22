@@ -4,8 +4,6 @@ import java.util.Scanner;
 
 public class Gabriel15 {
     public static void main(String[] args) {
-        // TODO - testar e revisar
-
         // 15. Uma rede social de amizades pode ser representada por uma matriz quadrada (mesmo número de linhas e colunas) de dimensão número de pessoas da rede social. A amizade entre as pessoas presentes nessa rede se dá da seguinte forma: suponha que n0, n1, n2... representa uma pessoa e, caso duas pessoas sejam amigas, então a posição da matriz será 1, caso contrário será 0 (zero). Considere a matriz de exemplo abaixo:
         // 
         // id  n0  n1  n2  n3  n4
@@ -22,7 +20,7 @@ public class Gabriel15 {
         Scanner scanner = new Scanner(System.in);
         int networkSize = 5, i, j, friendCount;
         int[][] friendships = new int[networkSize][networkSize];
-        
+
         System.out.println("Preencha a matriz de amizades (0 para nao, 1 para sim):");
         for (i = 0; i < networkSize; i++) {
             for (j = i + 1; j < networkSize; j++) {
@@ -31,22 +29,19 @@ public class Gabriel15 {
                 friendships[j][i] = friendships[i][j];
             }
         }
-        
+
         System.out.println("\nQuantidade de amigos por pessoa:");
         for (i = 0; i < networkSize; i++) {
             friendCount = countFriends(friendships[i]);
             System.out.printf("Pessoa n%d possui %d amigo(s).%n", i, friendCount);
         }
-        
+
         scanner.close();
     }
-    
+
     private static int countFriends(int[] personFriendships) {
         int count = 0, i;
-        for (i = 0; i < personFriendships.length; i++) {
-            if (personFriendships[i] == 1) {
-                count++;
-            }
-        }
+        for (i = 0; i < personFriendships.length; i++) if (personFriendships[i] == 1) count++;
         return count;
+    }
 }
