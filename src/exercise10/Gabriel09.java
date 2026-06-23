@@ -1,6 +1,5 @@
 package exercise10;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class Gabriel09 {
@@ -15,15 +14,11 @@ public class Gabriel09 {
         // TODO - fazer
 
         int countCities = 4;
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Qual a quantidade de cidades? ");
+        countCities = scanner.nextInt();
+
         double[][] matrix = new double[countCities][countCities];
-        double[] vector = new double[countCities];
-
-        System.out.println("Informe o custo de rota: ");
-        for (int i = 0; i < vector.length; i++) {
-
-            System.out.println("Qual o valor?");
-        }
-
-        System.out.println(Arrays.deepToString(matrix).replace("],", "],\n"));
     }
 }
