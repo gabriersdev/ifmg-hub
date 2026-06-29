@@ -33,7 +33,7 @@ public class Gabriel18 {
 
         for (int i = 0; i < rounds; i++) {
             for (int j = 0; j < 2; j++) {
-                if (i == 0) {
+                if (j == 0) {
                     System.out.println("Dário, informe um valor: ");
                     player1CurrentValue = scanner.nextInt();
                 }
@@ -45,10 +45,8 @@ public class Gabriel18 {
                 }
             }
 
-            if (matrixCord.contains("{" + player1CurrentValue + ", " + player2CurrentValue + "}"))
-                winnerPerRound[i] = 1;
-            else if (matrixCord.contains("{" + player2CurrentValue + ", " + player1CurrentValue + "}"))
-                winnerPerRound[i] = 2;
+            if (matrixCord.contains("{" + player1CurrentValue + ", " + player2CurrentValue + "}")) winnerPerRound[i] = 1;
+            else if (matrixCord.contains("{" + player2CurrentValue + ", " + player1CurrentValue + "}")) winnerPerRound[i] = 2;
             else winnerPerRound[i] = 0;
         }
 
@@ -63,9 +61,7 @@ public class Gabriel18 {
             }
         }
 
-        if (player1WinCount == player2WinCount) System.out.println("Empatou");
-        else if (player1WinCount > player2WinCount) System.out.println("O jogador 1 (Dário) venceu.");
-        else System.out.println("O jogador 2 (Xeres) venceu.");
+        if (player1WinCount > player2WinCount) System.out.println("dario");
+        else System.out.println("xerxes");
     }
-    // TODO - verificar a lógica
 }

@@ -1,5 +1,7 @@
 package exercise10;
 
+import java.util.Scanner;
+
 public class Gabriel09 {
     public static void main(String[] args) {
         // 9. Os elementos a_ij de uma matriz A_nxn representam os custos de transporte da cidade i para a cidade j. O caminhão de uma empresa de logística deve passar exatamente uma vez por cada uma da n cidades. Sabendo que, uma rota é representada por um vetor de n posições, em que cada posição representa a cidade visitada, você deve implementar um algoritmo que calcule o custo da rota de um caminhão da empresa. Note que, a rota e a matriz de custo devem ser fornecidas pelo usuário.
@@ -9,12 +11,31 @@ public class Gabriel09 {
         // 15 0 25 18
         // 12 14 0 20
         // 20 19 35 0
+        int countCities;
+        double routeCost = 0;
+        int[] vectorRoute;
+        int[][] costMatrix;
+        Scanner scanner = new Scanner(System.in);
 
-        int countCities = 4;
+        countCities = scanner.nextInt();
 
-        int[] vectorRoute =  new int[countCities];
-        int[] costMatrix = new int[countCities];
+        vectorRoute = new int[countCities];
+        costMatrix = new int[countCities][countCities];
 
-        // TODO - implementar e fazer o que se pede. Eu não entendi...
+        for (int i = 0; i < countCities; i++)
+            for (int j = 0; j < countCities; j++) {
+                System.out.println("Informe o custo da cidade " + i + " para a cidade " + j + ": ");
+                costMatrix[i][j] = scanner.nextInt();
+            }
+
+        for (int i = 0; i < countCities; i++) {
+            System.out.println("Informe a cidade na posicao " + i + " da rota: ");
+            vectorRoute[i] = scanner.nextInt();
+        }
+
+        for (int i = 0; i < countCities - 1; i++) routeCost += costMatrix[vectorRoute[i]][vectorRoute[i + 1]];
+
+        System.out.println("O custo total da rota em R$: ");
+        System.out.printf("%.2f", routeCost);
     }
 }

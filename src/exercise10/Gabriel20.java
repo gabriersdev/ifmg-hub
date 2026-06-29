@@ -65,18 +65,37 @@ public class Gabriel20 {
 
         int[][] matrix = new int[valueN][valueM];
 
-        // Preenche a matriz com valores randômicos
-        for (int i = 0; i < valueN; i++) for (int j = 0; j < valueM; j++)  matrix[i][j] = random.nextInt(0, 10);
+        // Preenche a matriz
+        for (int i = 0; i < valueN; i++) {
+            for (int j = 0; j < valueM; j++) {
+                System.out.println("Valor para a posição: [" + i + ", " + j + "]: ");
+                matrix[i][j] = scanner.nextInt();
+            }
+        }
 
         // Verifica a escadinha
-        // Uma matriz está na forma escada quando, para cada linha, as condições a seguir
-        // forem satisfeitas:
-        // - Se a linha só possuir zeros, então todas as linhas abaixo desta também só possuem zeros.
-        // - Caso contrário, seja X o elemento diferente de zero mais à esquerda da linha; então, para todas as
-        // linhas abaixo da linha de X, todos os elementos nas colunas à esquerda de X e na coluna de X são
-        // iguais a zero.
+        staircaseMatrix = 1;
+        int lastNonZeroCol = -1;
 
-        // TODO - aplicar restante da lógica fazendo um favor
+        for (int i = 0; i < valueN; i++) {
+            int firstNonZeroCol = -1;
+
+            for (int j = 0; j < valueM; j++) {
+                if (matrix[i][j] != 0) {
+                    firstNonZeroCol = j;
+                    break;
+                }
+            }
+
+            if (firstNonZeroCol == -1) lastNonZeroCol = valueM;
+            else {
+                if (firstNonZeroCol <= lastNonZeroCol) {
+                    staircaseMatrix = 0;
+                    break;
+                }
+                lastNonZeroCol = firstNonZeroCol;
+            }
+        }
 
         System.out.println("Saída: ");
         if (staircaseMatrix == 1) System.out.println("S");

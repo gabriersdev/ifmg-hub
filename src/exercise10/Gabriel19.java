@@ -35,14 +35,11 @@ public class Gabriel19 {
 
         String[][] matrix = new String[l][c];
 
-        // TODO - tem que terminar o script e fazer a limpeza de buffer. eu não entendi como é que vai ser feito o preenchimento da matriz
-
         // Preenche a matriz
-        // ...
-        for (int i = 0; i < l; i++)
-            for (int j = 0; j < c; j++) {
-                matrix[i][j] = scanner.next();
-            }
+        for (int i = 0; i < l; i++) {
+            String line = scanner.next();
+            for (int j = 0; j < c; j++) matrix[i][j] = String.valueOf(line.charAt(j));
+        }
 
         // Verifica a posição de Hermione real (o)
         for (int i = 0; i < l; i++) {
@@ -55,11 +52,22 @@ public class Gabriel19 {
                 }
             }
 
-            // TODO - isso faz sentido?
+            // Sim, isso faz sentido para quebrar o loop externo.
             if (breakAll == 1) break;
         }
 
-        System.out.println("A posição de Hermione é: ");
-        System.out.println(hermioneCordX + ", " + hermioneCordY);
+        // Percorre o caminho de Hermione
+        while (true) {
+            // Marca por onde já se sabe ou se acha que ela passou
+            matrix[hermioneCordX][hermioneCordY] = ".";
+
+            if (hermioneCordX > 0 && matrix[hermioneCordX - 1][hermioneCordY].equals("H")) hermioneCordX--;
+            else if (hermioneCordX < l - 1 && matrix[hermioneCordX + 1][hermioneCordY].equals("H")) hermioneCordX++;
+            else if (hermioneCordY > 0 && matrix[hermioneCordX][hermioneCordY - 1].equals("H")) hermioneCordY--;
+            else if (hermioneCordY < c - 1 && matrix[hermioneCordX][hermioneCordY + 1].equals("H")) hermioneCordY++;
+            else break; // Fim do caminho
+        }
+
+        System.out.println((hermioneCordX + 1) + " " + (hermioneCordY + 1));
     }
 }
