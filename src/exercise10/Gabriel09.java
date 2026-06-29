@@ -9,6 +9,12 @@ public class Gabriel09 {
         // 15 0 25 18
         // 12 14 0 20
         // 20 19 35 0
-        // TODO - fazer
+
+        int countCities = 4;
+
+        int[] vectorRoute =  new int[countCities];
+        int[] costMatrix = new int[countCities];
+
+        // TODO - implementar e fazer o que se pede. Eu não entendi...
     }
 }

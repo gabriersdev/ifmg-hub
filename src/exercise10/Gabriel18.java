@@ -1,5 +1,8 @@
 package exercise10;
 
+import java.util.Arrays;
+import java.util.Scanner;
+
 public class Gabriel18 {
     public static void main(String[] args) {
         // 18. A brincadeira da Pedra, Papel e Tesoura, muita gente conhece. Mas dá para fazer uma mais legal com cinco opções e não só três! Dois jogadores, dario e xerxes, jogam uma partida com N rodadas. Em cada rodada os jogadores escolhem uma "mão" entre cinco opções, que vamos representar aqui com os números 0, 1, 2, 3 e 4. A figura define exatamente quem ganha a rodada. Por exemplo, se dario escolheu 0 e xerxes escolheu 3, então xerxes ganha a rodada, pois existe uma seta na figura indo de 3 para 0.
@@ -17,6 +20,52 @@ public class Gabriel18 {
         // 1         xerxes
         // 3 1
 
-        // TODO - fazer
+        int rounds, player1CurrentValue = -1, player2CurrentValue = -1, player1WinCount = 0, player2WinCount = 0;
+        Scanner scanner = new Scanner(System.in);
+
+        // Tem os apontamentos: {X para Y}
+        String matrixCord = "{0, 1},{0, 2},{1, 2},{1, 3},{2, 3},{2, 4},{3, 4},{3, 0},{4, 0},{4, 1}";
+
+        System.out.println("Informe a quantidade de rodadas para jogar: ");
+        rounds = scanner.nextInt();
+
+        int[] winnerPerRound = new int[rounds];
+
+        for (int i = 0; i < rounds; i++) {
+            for (int j = 0; j < 2; j++) {
+                if (i == 0) {
+                    System.out.println("Dário, informe um valor: ");
+                    player1CurrentValue = scanner.nextInt();
+                }
+
+                //
+                else {
+                    System.out.println("Xerxes, informe um valor: ");
+                    player2CurrentValue = scanner.nextInt();
+                }
+            }
+
+            if (matrixCord.contains("{" + player1CurrentValue + ", " + player2CurrentValue + "}"))
+                winnerPerRound[i] = 1;
+            else if (matrixCord.contains("{" + player2CurrentValue + ", " + player1CurrentValue + "}"))
+                winnerPerRound[i] = 2;
+            else winnerPerRound[i] = 0;
+        }
+
+        System.out.println(Arrays.toString(winnerPerRound));
+
+        for (int j : winnerPerRound) {
+            if (j == 1) player1WinCount++;
+            else if (j == 2) player2WinCount++;
+            else {
+                player1WinCount++;
+                player2WinCount++;
+            }
+        }
+
+        if (player1WinCount == player2WinCount) System.out.println("Empatou");
+        else if (player1WinCount > player2WinCount) System.out.println("O jogador 1 (Dário) venceu.");
+        else System.out.println("O jogador 2 (Xeres) venceu.");
     }
+    // TODO - verificar a lógica
 }
