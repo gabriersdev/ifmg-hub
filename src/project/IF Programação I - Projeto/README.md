@@ -1,4 +1,4 @@
-# Trabalho Prático: Álbum de Figurinhas da Copa do Mundo
+Trabalho Prático: Álbum de Figurinhas da Copa do Mundo
 
 ## 1. Objetivos
 
@@ -22,7 +22,7 @@ jogadores das diversas seleções participantes do torneio. À medida que novas 
 do álbum são preenchidas enquanto outras permanecem vazias. Além disso, é bastante comum obter figurinhas repetidas, que
 podem posteriormente ser trocadas com outros colecionadores.
 
-Neste trabalho, você deverá desenvolver um sistema em Java capaz de simular o gerenciamento de um álbum de figurinhas da
+Neste trabalho, você deverá desenvolver um sistema em JAVA capaz de simular o gerenciamento de um álbum de figurinhas da
 Copa do Mundo, permitindo registrar novas figurinhas, identificar figurinhas faltantes, visualizar figurinhas repetidas
 e sugerir possíveis trocas entre colecionadores.
 
@@ -42,65 +42,49 @@ seleção, numerado de 1 a N, sendo N a quantidade de jogadores por elenco defin
 perfilada. A seguir temos uma figura com a representação das seleções no aplicativo Figuritas. Podem utilizar o
 aplicativo como fonte de inspiração.
 
-## **Descrição da Imagem (Página 2)**
+## Descrição da Imagem (Página 2)
 
-> A imagem exibe a captura de tela de um aplicativo móvel chamado "Figuritas" (com base no texto de contexto). Trata-se
-> de um gerenciador digital de álbum de figurinhas para a Copa do Mundo de "Eua Méx Can 26".
+> A imagem exibe a captura de tela de um aplicativo móvel chamado "Figuritas" (com base no texto de contexto). Trata-se de um gerenciador digital de álbum de figurinhas para a Copa do Mundo de "Eua Méx Can 26".
 >
 >
-> No topo da tela, há um menu com três abas horizontais: **"Todas"** (que está selecionada), **"Me faltam"** e **"
-Repetidas"**. Logo abaixo, há uma seção intitulada **"MEX - México"** acompanhada da bandeira do país.
+> No topo da tela, há um menu com três abas horizontais: **"Todas"** (que está selecionada), **"Me faltam"** e **"Repetidas"**. Logo abaixo, há uma seção intitulada **"MEX - México"** acompanhada da bandeira do país.
 >
 >
 > A parte principal mostra uma grade numérica contendo círculos de 1 a 20, representando as figurinhas da seleção
 > mexicana:
-> * **Figurinhas Faltantes:** Os círculos de número **1, 2, 9, 15, 18, 19 e 20** aparecem com um fundo cinza-claro ou
-    quase branco, indicando que não foram adquiridas. O número 1 especificamente possui um leve sombreado amarelado.
+> * **Figurinhas Faltantes:** Os círculos de número **1, 2, 9, 15, 18, 19 e 20** aparecem com um fundo cinza-claro ou quase branco, indicando que não foram adquiridas. O número 1 especificamente possui um leve sombreado amarelado.
 >
 >
-> * **Figurinhas Possuídas:** Os círculos de número **3, 4, 5, 6, 8, 10, 11, 12, 13, 14, 16 e 17** possuem um fundo
-    cinza-escuro opaco, indicando que o colecionador já as colou. Os números dentro deles estão riscados
-    horizontalmente.
-> * **Figurinhas Repetidas:** O círculo de número **7** destaca-se por possuir um pequeno círculo azul flutuante no
-    canto superior direito com o número **1**, indicando que há uma unidade repetida desta figurinha.
->
->
->
->
+> * **Figurinhas Possuídas:** Os círculos de número **3, 4, 5, 6, 8, 10, 11, 12, 13, 14, 16 e 17** possuem um fundo cinza-escuro opaco, indicando que o colecionador já as colou. Os números dentro deles estão riscados horizontalmente.
 
-O exemplo da figura mostra a seleção do México, sendo que ainda não foram encontradas as figurinhas 1, 2, 9, 15, 18, 19
-e 20 e a figurinha de número 7 possui uma repetição.
+> * **Figurinhas Repetidas:** O círculo de número **7** destaca-se por possuir um pequeno círculo azul flutuante no canto superior direito com o número **1**, indicando que há uma unidade repetida desta figurinha.
+
+O exemplo da figura mostra a seleção do México, sendo que ainda não foram encontradas as figurinhas 1, 2, 9, 15, 18, 19 e 20 e a figurinha de número 7 possui uma repetição.
 
 ## 3. Modelagem da Estrutura de Dados
 
-A matriz principal deve ter dimensões $M \times N$, em que $M$ é o número de seleções e $N$ é o número de jogadores por
-seleção. Essas dimensões podem ser fixas e devem ser lidas dinamicamente do arquivo de entrada a ser disponibilizado.
+A matriz principal deve ter dimensões $M \times N$, em que $M$ é o número de seleções e $N$ é o número de jogadores por seleção. Essas dimensões podem ser fixas e devem ser lidas dinamicamente do arquivo de entrada a ser disponibilizado.
 
 O exemplo abaixo é apenas ilustrativo, com 4 seleções e 5 jogadores, e não faz parte do enunciado obrigatório:
 
-| Seleção \ Jogador | 1 | 2 | 3 | 4 | 5 |
-|-------------------|---|---|---|---|---|
-| **Brasil**        | 0 | 1 | 3 | 1 | 0 |
-| **Argentina**     | 0 | 1 | 1 | 0 | 2 |
-| **França**        | 1 | 1 | 0 | 0 | 1 |
-| **Alemanha**      | 0 | 2 | 1 | 1 | 1 |
+| Seleção e Jogador | 1   | 2   | 3   | 4   | 5   |
+| ----------------- | --- | --- | --- | --- | --- |
+| **Brasil**        | 0   | 1   | 3   | 1   | 0   |
+| **Argentina**     | 0   | 1   | 1   | 0   | 2   |
+| **França**        | 1   | 1   | 0   | 0   | 1   |
+| **Alemanha**      | 0   | 2   | 1   | 1   | 1   |
 
 Tabela 1 - Exemplo ilustrativo com 4 seleções e 5 jogadores por seleção
 
-**Leitura do exemplo:** o Brasil possui a figurinha do jogador 1 (valor 1), não possui a do jogador 2 (valor 0,
-faltante), possui 3 figurinhas do jogador 3 (1 colada + 2 repetidas), e assim por diante.
+**Leitura do exemplo:** o Brasil possui a figurinha do jogador 1 (valor 1), não possui a do jogador 2 (valor 0, faltante), possui 3 figurinhas do jogador 3 (1 colada + 2 repetidas), e assim por diante.
 
-**Sugestão de dimensionamento:** inicie seus testes com valores pequenos, tal como 6 seleções com 10 jogadores cada. O
-teste servirá para validar a lógica e funcionamento do código. Para fins de entrega final do trabalho, o dimensionamento
-será realizado via leitura de arquivo que conterá todas as seleções da copa, contendo 20 figurinhas cada.
+**Sugestão de dimensionamento:** inicie seus testes com valores pequenos, tal como 6 seleções com 10 jogadores cada. O teste servirá para validar a lógica e funcionamento do código. Para fins de entrega final do trabalho, o dimensionamento será realizado via leitura de arquivo que conterá todas as seleções da copa, contendo 20 figurinhas cada.
 
 ## 4. Arquivo de Entrada
 
-O programa deve ler, na opção "Carregar álbum", um arquivo de texto contendo as informações do álbum, tais como a
-dimensão e as figurinhas já existentes no álbum. Sugere-se o seguinte formato:
+O programa deve ler, na opção "Carregar álbum", um arquivo de texto contendo as informações do álbum, tais como a dimensão e as figurinhas já existentes no álbum. Sugere-se o seguinte formato:
 
-* **1ª linha:** dois números inteiros separados por espaço — a quantidade de seleções ($M$) e a quantidade de jogadores
-  por seleção ($N$);
+* **1ª linha:** dois números inteiros separados por espaço — a quantidade de seleções ($M$) e a quantidade de jogadores por seleção ($N$);
 
 * **M linhas seguintes:** cada linha contém o nome da seleção considerada no álbum;
 
@@ -122,11 +106,9 @@ Alemanha
 
 ```
 
-(Nota de correção da transcrição: A linha correspondente à França no arquivo de exemplo original continha `"11001"`, mas
-foi ajustada aqui com espaços para condizer com o padrão de separação e com a tabela representada ).
+Nota de correção da transcrição: A linha correspondente à França no arquivo de exemplo original continha `"11001"`, mas foi ajustada aqui com espaços para condizer com o padrão de separação e com a tabela representada.
 
-Os nomes das seleções (Brasil, Argentina, França, Alemanha, ...) não precisam constar no arquivo de matriz: podem ser
-mantidos em um vetor auxiliar de strings, na mesma ordem das linhas, definido pela dupla.
+Os nomes das seleções (Brasil, Argentina, França, Alemanha, ...) não precisam constar no arquivo de matriz: podem ser mantidos em um vetor auxiliar de `strings`, na mesma ordem das linhas, definido pela dupla.
 
 ## 5. Especificação Funcional (Menu Principal)
 
@@ -135,18 +117,13 @@ saída, contendo, no mínimo, as opções a seguir:
 
 1. Carregar álbum a partir de arquivo (fornecerei o método de leitura de arquivos)
 
-
 2. Registrar nova figurinha
-
 
 3. Listar figurinhas faltantes
 
-
 4. Listar figurinhas repetidas
 
-
 5. Comparar dois álbuns (verificar trocas possíveis)
-
 
 6. Sair
 
@@ -164,7 +141,6 @@ nomes, caso a dupla implemente um vetor auxiliar de nomes). Validar se os índic
 estão dentro dos limites da matriz.
 
 * Se a posição estiver com valor 0, ela passa a valer 1 (nova figurinha colada).
-
 
 * Se a posição já tiver valor maior ou igual a 1, o valor deve ser incrementado em 1 (nova figurinha repetida).
 
@@ -184,17 +160,13 @@ França Jogador 3
 França Jogador 4
 Alemanha Jogador 1
 Total de 7 figurinhas faltantes
-
 ```
 
-(Nota de ajuste: O texto original continha pequenos erros tipográficos de quebra de linha na listagem da
-França/Alemanha, corrigidos aqui para melhor compreensão lógica ).
+(Nota de ajuste: O texto original continha pequenos erros tipográficos de quebra de linha na listagem da França e Alemanha, corrigidos aqui para melhor compreensão lógica ).
 
 ### 5.4 Listar Figurinhas Repetidas
 
-Percorrer toda a matriz e exibir todas as posições cujo valor seja maior que 1, indicando a quantidade de repetidas (
-valor da célula menos 1). Exibir, ao final da listagem, o total de figurinhas repetidas (soma de todas as repetições da
-matriz).
+Percorrer toda a matriz e exibir todas as posições cujo valor seja maior que 1, indicando a quantidade de repetidas (valor da célula menos 1). Exibir, ao final da listagem, o total de figurinhas repetidas (soma de todas as repetições da matriz).
 
 Exemplo considerando o álbum da seção 4:
 
@@ -206,17 +178,13 @@ Total de 4 figurinhas repetidas
 
 ```
 
-(Nota de ajuste: O texto bruto da linha da Alemanha continha "$-1$" e "Jogador 1", mas cruzando com a tabela real do
-enunciado, a Alemanha possui valor 2 no Jogador 2, o que gera 1 repetição ).
+(Nota de ajuste: O texto bruto da linha da Alemanha continha "$-1$" e "Jogador 1", mas cruzando com a tabela real do enunciado, a Alemanha possui valor 2 no Jogador 2, o que gera 1 repetição ).
 
 ### 5.5 Comparar Dois Álbuns (Verificar Trocas Possíveis)
 
-Permitir carregar um segundo álbum, a partir de outro arquivo no mesmo formato da Seção 4, representando o álbum de
-outro(a) colecionador(a). Para cada posição em que o primeiro álbum tenha figurinha repetida (valor > 1) e o segundo
-álbum tenha a mesma figurinha faltante (valor = 0), identificar e listar essa posição como uma possível troca. E
-vice-versa, ou seja, essa opção deve mostrar todas as figurinhas repetidas do 1º álbum que servem para o 2º álbum, e
-também devem mostrar todas as figurinhas repetidas do 2º álbum que servem para o 1º álbum. Essa é a funcionalidade *
-*TINDER** das figurinhas. Exibir, ao final, o total de trocas possíveis encontradas.
+Permitir carregar um segundo álbum, a partir de outro arquivo no mesmo formato da Seção 4, representando o álbum de outro(a) colecionador(a). Para cada posição em que o primeiro álbum tenha figurinha repetida (valor > 1) e o segundo álbum tenha a mesma figurinha faltante (valor = 0), identificar e listar essa posição como uma possível troca. 
+
+E vice-versa, ou seja, essa opção deve mostrar todas as figurinhas repetidas do 1º álbum que servem para o 2º álbum, e também devem mostrar todas as figurinhas repetidas do 2º álbum que servem para o 1º álbum. Essa é a funcionalidade TINDER das figurinhas. Exibir, ao final, o total de trocas possíveis encontradas.
 
 **Exemplo:**
 Suponha os dois álbuns a seguir:
@@ -244,12 +212,9 @@ Suponha os dois álbuns a seguir:
 Possíveis trocas:
 
 * **Álbum 1 para Álbum 2:** Brasil jogador 3; Argentina jogador 5; Alemanha jogador 4.
-
-
 * **Álbum 2 para Álbum 1:** Brasil jogador 2; França jogador 3; Alemanha jogador 2.
 
-Após a análise, deve solicitar a confirmação de troca. Caso a troca seja aceita, os álbuns ao final devem ficar conforme
-abaixo:
+Após a análise, deve solicitar a confirmação de troca. Caso a troca seja aceita, os álbuns ao final devem ficar conforme abaixo:
 
 * Álbum 1 Modificado:
 
@@ -275,10 +240,9 @@ abaixo:
 
 * A matriz deve ser implementada como um array bidimensional (`int[][]`).
 
-* Uso de `java.util.Scanner` ou `java.io.BufferedReader` para leitura dos arquivos.
+* Uso de `JAVA.util.Scanner` ou `JAVA.io.BufferedReader` para leitura dos arquivos.
 
-* Código modularizado em métodos (por exemplo: `carregarAlbum`, `registrarFigurinha`, `listarFaltantes`,
-  `listarRepetidas`, `compararAlbuns`).
+* Código modularizado em métodos (por exemplo: `carregarAlbum`, `registrarFigurinha`, `listarFaltantes`,`listarRepetidas`, `compararAlbuns`).
 
 * Uso de constantes/variáveis para as dimensões da matriz, evitando valores fixos espalhados pelo código.
 
@@ -288,12 +252,9 @@ abaixo:
 
 * Validar índices de seleção e jogador fora dos limites da matriz, sem permitir que o programa encerre de forma abrupta.
 
-
 * Validar arquivos inexistentes ou com formato incorreto, exibindo mensagem clara ao usuário.
 
-
 * Validar que os dois álbuns comparados na Seção 5.5 possuem as mesmas dimensões antes de iniciar a comparação.
-
 
 * Validar entradas numéricas do usuário (por exemplo, opções de menu inválidas).
 
@@ -310,7 +271,7 @@ abaixo:
 
 ## 9. Forma de Entrega
 
-* Código-fonte Java (`.java`) organizado em projeto.
+* Código-fonte JAVA (`.JAVA`) organizado em projeto.
 
 * Arquivo(s) de exemplo de álbum (`.txt`) utilizados para testar o programa.
 
@@ -323,11 +284,8 @@ abaixo:
 As sugestões abaixo não são obrigatórias, mas podem ser usadas como pontuação extra ou para diferenciar duplas com maior
 domínio do conteúdo:
 
-* Salvar no arquivo lido as alterações feitas durante a execução (por exemplo, salvar o álbum atualizado ao registrar
-  novas figurinhas ou ao realizar as trocas).
+* Salvar no arquivo lido as alterações feitas durante a execução (por exemplo, salvar o álbum atualizado ao registrar novas figurinhas ou ao realizar as trocas).
 
-* Gerar estatísticas adicionais, como percentual do álbum completo, seleção com mais figurinhas faltantes, ou jogador
-  mais repetido.
+* Gerar estatísticas adicionais, como percentual do álbum completo, seleção com mais figurinhas faltantes, ou jogador mais repetido.
 
-* Implementar uma interface gráfica simples (fora do escopo mínimo do trabalho). A interface pode ser feita com a classe
-  swing em java ou via html que invoca o "back-end" feito em java.
+* Implementar uma interface gráfica simples (fora do escopo mínimo do trabalho). A interface pode ser feita com a classe swing em JAVA ou via html que invoca o `back-end` feito em JAVA.
