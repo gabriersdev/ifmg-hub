@@ -11,14 +11,31 @@ public class Gabriel09 {
         // 15 0 25 18
         // 12 14 0 20
         // 20 19 35 0
-        // TODO - fazer
-
-        int countCities = 4;
+        int countCities;
+        double routeCost = 0;
+        int[] vectorRoute;
+        int[][] costMatrix;
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Qual a quantidade de cidades? ");
         countCities = scanner.nextInt();
 
-        double[][] matrix = new double[countCities][countCities];
+        vectorRoute = new int[countCities];
+        costMatrix = new int[countCities][countCities];
+
+        for (int i = 0; i < countCities; i++)
+            for (int j = 0; j < countCities; j++) {
+                System.out.println("Informe o custo da cidade " + i + " para a cidade " + j + ": ");
+                costMatrix[i][j] = scanner.nextInt();
+            }
+
+        for (int i = 0; i < countCities; i++) {
+            System.out.println("Informe a cidade na posicao " + i + " da rota: ");
+            vectorRoute[i] = scanner.nextInt();
+        }
+
+        for (int i = 0; i < countCities - 1; i++) routeCost += costMatrix[vectorRoute[i]][vectorRoute[i + 1]];
+
+        System.out.println("O custo total da rota em R$: ");
+        System.out.printf("%.2f", routeCost);
     }
 }
