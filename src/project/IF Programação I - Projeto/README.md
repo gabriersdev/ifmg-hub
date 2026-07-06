@@ -36,27 +36,21 @@ por uma matriz de números inteiros, na qual cada posição (linha, coluna) indi
 * **Valor maior que 1**: quantidade total de figurinhas que o(a) colecionador(a) possui para aquela posição; logo, o
   número de unidades repetidas é o valor da célula menos 1.
 
-Cada linha da matriz representa uma seleção participante da Copa do Mundo, e cada coluna representa um jogador daquela
-seleção, numerado de 1 a N, sendo N a quantidade de jogadores por elenco definida pela dupla (por exemplo, 23 ou 26). No
-álbum da copa atual, cada seleção possui 20 figurinhas, sendo 18 de jogadores e 2 representando o emblema e a seleção
-perfilada. A seguir temos uma figura com a representação das seleções no aplicativo Figuritas. Podem utilizar o
-aplicativo como fonte de inspiração.
+Cada linha da matriz representa uma seleção participante da Copa do Mundo, e cada coluna representa um jogador daquela seleção, numerado de 1 a N, sendo N a quantidade de jogadores por elenco definida pela dupla (por exemplo, 23 ou 26). No álbum da copa atual, cada seleção possui 20 figurinhas, sendo 18 de jogadores e 2 representando o emblema e a seleção perfilada. A seguir temos uma figura com a representação das seleções no aplicativo Figuritas. Podem utilizar o aplicativo como fonte de inspiração.
 
 ## Descrição da Imagem (Página 2)
 
 > A imagem exibe a captura de tela de um aplicativo móvel chamado "Figuritas" (com base no texto de contexto). Trata-se de um gerenciador digital de álbum de figurinhas para a Copa do Mundo de "Eua Méx Can 26".
 >
->
 > No topo da tela, há um menu com três abas horizontais: **"Todas"** (que está selecionada), **"Me faltam"** e **"Repetidas"**. Logo abaixo, há uma seção intitulada **"MEX - México"** acompanhada da bandeira do país.
->
 >
 > A parte principal mostra uma grade numérica contendo círculos de 1 a 20, representando as figurinhas da seleção
 > mexicana:
+> 
 > * **Figurinhas Faltantes:** Os círculos de número **1, 2, 9, 15, 18, 19 e 20** aparecem com um fundo cinza-claro ou quase branco, indicando que não foram adquiridas. O número 1 especificamente possui um leve sombreado amarelado.
 >
->
 > * **Figurinhas Possuídas:** Os círculos de número **3, 4, 5, 6, 8, 10, 11, 12, 13, 14, 16 e 17** possuem um fundo cinza-escuro opaco, indicando que o colecionador já as colou. Os números dentro deles estão riscados horizontalmente.
-
+> 
 > * **Figurinhas Repetidas:** O círculo de número **7** destaca-se por possuir um pequeno círculo azul flutuante no canto superior direito com o número **1**, indicando que há uma unidade repetida desta figurinha.
 
 O exemplo da figura mostra a seleção do México, sendo que ainda não foram encontradas as figurinhas 1, 2, 9, 15, 18, 19 e 20 e a figurinha de número 7 possui uma repetição.
@@ -84,7 +78,7 @@ Tabela 1 - Exemplo ilustrativo com 4 seleções e 5 jogadores por seleção
 
 O programa deve ler, na opção "Carregar álbum", um arquivo de texto contendo as informações do álbum, tais como a dimensão e as figurinhas já existentes no álbum. Sugere-se o seguinte formato:
 
-* **1ª linha:** dois números inteiros separados por espaço — a quantidade de seleções ($M$) e a quantidade de jogadores por seleção ($N$);
+* **1ª linha:** dois números inteiros separados por espaço - a quantidade de seleções ($M$) e a quantidade de jogadores por seleção ($N$);
 
 * **M linhas seguintes:** cada linha contém o nome da seleção considerada no álbum;
 
@@ -112,8 +106,7 @@ Os nomes das seleções (Brasil, Argentina, França, Alemanha, ...) não precisa
 
 ## 5. Especificação Funcional (Menu Principal)
 
-O programa deve apresentar um menu principal em modo texto, exibido repetidamente até que o usuário escolha a opção de
-saída, contendo, no mínimo, as opções a seguir:
+O programa deve apresentar um menu principal em modo texto, exibido repetidamente até que o usuário escolha a opção de saída, contendo, no mínimo, as opções a seguir:
 
 1. Carregar álbum a partir de arquivo (fornecerei o método de leitura de arquivos)
 
@@ -129,16 +122,11 @@ saída, contendo, no mínimo, as opções a seguir:
 
 ### 5.1 Carregar Álbum
 
-O método de leitura será disponibilizado junto ao trabalho. Solicitar ao usuário o nome (ou caminho) do arquivo de texto
-e carregar seus dados para uma matriz em memória, seguindo o formato definido na Seção 4. O caminho do arquivo pode ser
-predefinido no código. Validar se o arquivo existe e se o conteúdo é compatível com as dimensões informadas na primeira
-linha, tratando adequadamente possíveis erros de leitura.
+O método de leitura será disponibilizado junto ao trabalho. Solicitar ao usuário o nome (ou caminho) do arquivo de texto e carregar seus dados para uma matriz em memória, seguindo o formato definido na Seção 4. O caminho do arquivo pode ser predefinido no código. Validar se o arquivo existe e se o conteúdo é compatível com as dimensões informadas na primeira linha, tratando adequadamente possíveis erros de leitura.
 
 ### 5.2 Registrar Nova Figurinha
 
-Solicitar ao usuário a seleção e o jogador da figurinha obtida (por exemplo, pelos índices de linha e coluna, ou por
-nomes, caso a dupla implemente um vetor auxiliar de nomes). Validar se os índices informados são válidos, isto é, se
-estão dentro dos limites da matriz.
+Solicitar ao usuário a seleção e o jogador da figurinha obtida (por exemplo, pelos índices de linha e coluna, ou por nomes, caso a dupla implemente um vetor auxiliar de nomes). Validar e os índices informados são válidos, isto é, se estão dentro dos limites da matriz.
 
 * Se a posição estiver com valor 0, ela passa a valer 1 (nova figurinha colada).
 
@@ -146,8 +134,7 @@ estão dentro dos limites da matriz.
 
 ### 5.3 Listar Figurinhas Faltantes
 
-Percorrer a matriz e exibir todas as posições (seleção e jogador) cujo valor seja igual a 0. Exibir, ao final da
-listagem, o total de figurinhas faltantes.
+Percorrer a matriz e exibir todas as posições (seleção e jogador) cujo valor seja igual a 0. Exibir, ao final da listagem, o total de figurinhas faltantes.
 
 Exemplo considerando o álbum da seção 4:
 
@@ -162,7 +149,7 @@ Alemanha Jogador 1
 Total de 7 figurinhas faltantes
 ```
 
-(Nota de ajuste: O texto original continha pequenos erros tipográficos de quebra de linha na listagem da França e Alemanha, corrigidos aqui para melhor compreensão lógica ).
+(Nota de ajuste: O texto original continha pequenos erros tipográficos de quebra de linha na listagem da França e Alemanha, corrigidos aqui para melhor compreensão lógica).
 
 ### 5.4 Listar Figurinhas Repetidas
 
@@ -178,7 +165,7 @@ Total de 4 figurinhas repetidas
 
 ```
 
-(Nota de ajuste: O texto bruto da linha da Alemanha continha "$-1$" e "Jogador 1", mas cruzando com a tabela real do enunciado, a Alemanha possui valor 2 no Jogador 2, o que gera 1 repetição ).
+(Nota de ajuste: O texto bruto da linha da Alemanha continha "$-1$" e "Jogador 1", mas cruzando com a tabela real do enunciado, a Alemanha possui valor 2 no Jogador 2, o que gera 1 repetição).
 
 ### 5.5 Comparar Dois Álbuns (Verificar Trocas Possíveis)
 
