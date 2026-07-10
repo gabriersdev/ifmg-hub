@@ -6,35 +6,22 @@ Este trabalho prático tem como objetivo consolidar, em um problema concreto e l
 programação trabalhados no primeiro período do curso. Ao final do desenvolvimento, a dupla deverá ter exercitado:
 
 * Manipulação de matrizes bidimensionais para representar dados tabulares;
-
 * Leitura de arquivos de texto e interpretação do seu conteúdo para preencher estruturas de dados em memória;
-
 * Modularização do código em métodos com responsabilidades bem definidas;
-
 * Uso de estruturas de repetição e de decisão para percorrer, filtrar e comparar dados;
-
 * Validação de entradas fornecidas pelo usuário e tratamento básico de erros.
 
 ## 2. Descrição do Cenário
 
-Durante os períodos que antecedem a Copa do Mundo, é comum que torcedores colecionem álbuns de figurinhas contendo
-jogadores das diversas seleções participantes do torneio. À medida que novas figurinhas são adquiridas, algumas posições
-do álbum são preenchidas enquanto outras permanecem vazias. Além disso, é bastante comum obter figurinhas repetidas, que
-podem posteriormente ser trocadas com outros colecionadores.
+Durante os períodos que antecedem a Copa do Mundo, é comum que torcedores colecionem álbuns de figurinhas contendo jogadores das diversas seleções participantes do torneio. À medida que novas figurinhas são adquiridas, algumas posições do álbum são preenchidas enquanto outras permanecem vazias. Além disso, é bastante comum obter figurinhas repetidas, que podem posteriormente ser trocadas com outros colecionadores.
 
-Neste trabalho, você deverá desenvolver um sistema em JAVA capaz de simular o gerenciamento de um álbum de figurinhas da
-Copa do Mundo, permitindo registrar novas figurinhas, identificar figurinhas faltantes, visualizar figurinhas repetidas
-e sugerir possíveis trocas entre colecionadores.
+Neste trabalho, você deverá desenvolver um sistema em JAVA capaz de simular o gerenciamento de um álbum de figurinhas da Copa do Mundo, permitindo registrar novas figurinhas, identificar figurinhas faltantes, visualizar figurinhas repetidas e sugerir possíveis trocas entre colecionadores.
 
-A dupla deverá desenvolver um sistema que simula um álbum de figurinhas de uma Copa do Mundo. Cada álbum é representado
-por uma matriz de números inteiros, na qual cada posição (linha, coluna) indica a situação de uma figurinha específica:
+A dupla deverá desenvolver um sistema que simula um álbum de figurinhas de uma Copa do Mundo. Cada álbum é representado por uma matriz de números inteiros, na qual cada posição (linha, coluna) indica a situação de uma figurinha específica:
 
 * **0**: a figurinha ainda não foi colada no álbum (faltante);
-
 * **1**: o(a) colecionador(a) possui exatamente uma figurinha colada nessa posição (completa, sem repetição);
-
-* **Valor maior que 1**: quantidade total de figurinhas que o(a) colecionador(a) possui para aquela posição; logo, o
-  número de unidades repetidas é o valor da célula menos 1.
+* **Valor maior que 1**: quantidade total de figurinhas que o(a) colecionador(a) possui para aquela posição; logo, o número de unidades repetidas é o valor da célula menos 1.
 
 Cada linha da matriz representa uma seleção participante da Copa do Mundo, e cada coluna representa um jogador daquela seleção, numerado de 1 a N, sendo N a quantidade de jogadores por elenco definida pela dupla (por exemplo, 23 ou 26). No álbum da copa atual, cada seleção possui 20 figurinhas, sendo 18 de jogadores e 2 representando o emblema e a seleção perfilada. A seguir temos uma figura com a representação das seleções no aplicativo Figuritas. Podem utilizar o aplicativo como fonte de inspiração.
 
@@ -109,15 +96,10 @@ Os nomes das seleções (Brasil, Argentina, França, Alemanha, ...) não precisa
 O programa deve apresentar um menu principal em modo texto, exibido repetidamente até que o usuário escolha a opção de saída, contendo, no mínimo, as opções a seguir:
 
 1. Carregar álbum a partir de arquivo (fornecerei o método de leitura de arquivos)
-
 2. Registrar nova figurinha
-
 3. Listar figurinhas faltantes
-
 4. Listar figurinhas repetidas
-
 5. Comparar dois álbuns (verificar trocas possíveis)
-
 6. Sair
 
 ### 5.1 Carregar Álbum
@@ -129,7 +111,6 @@ O método de leitura será disponibilizado junto ao trabalho. Solicitar ao usuá
 Solicitar ao usuário a seleção e o jogador da figurinha obtida (por exemplo, pelos índices de linha e coluna, ou por nomes, caso a dupla implemente um vetor auxiliar de nomes). Validar e os índices informados são válidos, isto é, se estão dentro dos limites da matriz.
 
 * Se a posição estiver com valor 0, ela passa a valer 1 (nova figurinha colada).
-
 * Se a posição já tiver valor maior ou igual a 1, o valor deve ser incrementado em 1 (nova figurinha repetida).
 
 ### 5.3 Listar Figurinhas Faltantes
@@ -226,23 +207,16 @@ Após a análise, deve solicitar a confirmação de troca. Caso a troca seja ace
 ## 6. Requisitos Técnicos
 
 * A matriz deve ser implementada como um array bidimensional (`int[][]`).
-
 * Uso de `JAVA.util.Scanner` ou `JAVA.io.BufferedReader` para leitura dos arquivos.
-
 * Código modularizado em métodos (por exemplo: `carregarAlbum`, `registrarFigurinha`, `listarFaltantes`,`listarRepetidas`, `compararAlbuns`).
-
 * Uso de constantes/variáveis para as dimensões da matriz, evitando valores fixos espalhados pelo código.
-
 * Interface por linha de comando (terminal), com menu textual conforme a Seção 5.
 
 ## 7. Tratamento de Erros e Validações
 
 * Validar índices de seleção e jogador fora dos limites da matriz, sem permitir que o programa encerre de forma abrupta.
-
 * Validar arquivos inexistentes ou com formato incorreto, exibindo mensagem clara ao usuário.
-
 * Validar que os dois álbuns comparados na Seção 5.5 possuem as mesmas dimensões antes de iniciar a comparação.
-
 * Validar entradas numéricas do usuário (por exemplo, opções de menu inválidas).
 
 ## 8. Critérios de Avaliação
@@ -259,11 +233,8 @@ Após a análise, deve solicitar a confirmação de troca. Caso a troca seja ace
 ## 9. Forma de Entrega
 
 * Código-fonte JAVA (`.JAVA`) organizado em projeto.
-
 * Arquivo(s) de exemplo de álbum (`.txt`) utilizados para testar o programa.
-
 * Breve relatório (PDF ou texto) descrevendo as decisões de implementação.
-
 * Identificação completa dos dois integrantes da dupla em todos os arquivos entregues.
 
 ## 10. Observações Finais e Extensões Opcionais (Bônus)
@@ -272,7 +243,5 @@ As sugestões abaixo não são obrigatórias, mas podem ser usadas como pontuaç
 domínio do conteúdo:
 
 * Salvar no arquivo lido as alterações feitas durante a execução (por exemplo, salvar o álbum atualizado ao registrar novas figurinhas ou ao realizar as trocas).
-
 * Gerar estatísticas adicionais, como percentual do álbum completo, seleção com mais figurinhas faltantes, ou jogador mais repetido.
-
 * Implementar uma interface gráfica simples (fora do escopo mínimo do trabalho). A interface pode ser feita com a classe swing em JAVA ou via html que invoca o `back-end` feito em JAVA.
